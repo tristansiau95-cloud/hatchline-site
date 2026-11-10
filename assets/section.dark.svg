@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="86.41 86.38 243.71 96.25" font-family="Arial, Helvetica, sans-serif" data-scale="100" data-paper="A3" data-kind="section" preserveAspectRatio="xMidYMid meet">
+<g id="ROOMS" data-layer="ROOMS" stroke="#111111" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="butt">
+<polygon points="133.93,160.25 192.43,160.25 192.43,127.75 133.93,127.75" fill="#ffffff" fill-opacity="0.07" stroke="none" class="fl" data-i="0"/>
+<polygon points="193.43,160.25 222.43,160.25 222.43,127.75 193.43,127.75" fill="#ffffff" fill-opacity="0.07" stroke="none" class="fl" data-i="1"/>
+<polygon points="223.43,160.25 247.43,160.25 247.43,127.75 223.43,127.75" fill="#ffffff" fill-opacity="0.07" stroke="none" class="fl" data-i="2"/>
+<polygon points="248.43,160.25 281.93,160.25 281.93,127.75 248.43,127.75" fill="#ffffff" fill-opacity="0.07" stroke="none" class="fl" data-i="3"/>
+</g>
+<g id="SECTION-BEYOND" data-layer="SECTION-BEYOND" stroke="#8a8a8a" stroke-width="0.18" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="131.93" y1="160.25" x2="285.43" y2="160.25" stroke="#e8f1f8" class="ln" data-i="4" pathLength="1"/>
+<line x1="131.93" y1="127.75" x2="283.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="5" pathLength="1"/>
+<line x1="131.93" y1="126.25" x2="285.43" y2="126.25" stroke="#e8f1f8" class="ln" data-i="6" pathLength="1"/>
+<line x1="131.93" y1="95.75" x2="283.93" y2="95.75" stroke="#e8f1f8" class="ln" data-i="7" pathLength="1"/>
+<line x1="122.93" y1="94.75" x2="131.93" y2="94.75" stroke="#e8f1f8" class="ln" data-i="8" pathLength="1"/>
+<line x1="283.93" y1="94.75" x2="292.93" y2="94.75" stroke="#e8f1f8" class="ln" data-i="9" pathLength="1"/>
+<line x1="122.93" y1="94.25" x2="292.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="10" pathLength="1"/>
+<line x1="122.93" y1="94.75" x2="122.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="11" pathLength="1"/>
+<line x1="131.93" y1="160.25" x2="131.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="12" pathLength="1"/>
+<line x1="131.93" y1="126.25" x2="131.93" y2="95.75" stroke="#e8f1f8" class="ln" data-i="13" pathLength="1"/>
+<line x1="133.93" y1="160.25" x2="133.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="14" pathLength="1"/>
+<line x1="133.93" y1="126.25" x2="133.93" y2="95.75" stroke="#e8f1f8" class="ln" data-i="15" pathLength="1"/>
+<line x1="281.93" y1="160.25" x2="281.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="16" pathLength="1"/>
+<line x1="281.93" y1="126.25" x2="281.93" y2="95.75" stroke="#e8f1f8" class="ln" data-i="17" pathLength="1"/>
+<line x1="283.93" y1="160.25" x2="283.93" y2="95.75" stroke="#e8f1f8" class="ln" data-i="18" pathLength="1"/>
+<line x1="285.43" y1="160.25" x2="285.43" y2="126.25" stroke="#e8f1f8" class="ln" data-i="19" pathLength="1"/>
+<line x1="292.93" y1="94.75" x2="292.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="20" pathLength="1"/>
+</g>
+<g id="POCHE" data-layer="POCHE" stroke="#3b3b3b" stroke-width="0.0" stroke-linejoin="round" stroke-linecap="butt">
+<polygon points="131.93,161.75 283.93,161.75 283.93,160.25 131.93,160.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="21"/>
+<polygon points="131.93,160.25 133.93,160.25 133.93,127.75 131.93,127.75" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="22"/>
+<polygon points="192.43,160.25 193.43,160.25 193.43,127.75 192.43,127.75" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="23"/>
+<polygon points="222.43,160.25 223.43,160.25 223.43,127.75 222.43,127.75" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="24"/>
+<polygon points="247.43,160.25 248.43,160.25 248.43,127.75 247.43,127.75" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="25"/>
+<polygon points="281.93,160.25 283.93,160.25 283.93,127.75 281.93,127.75" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="26"/>
+<polygon points="131.93,127.75 283.93,127.75 283.93,126.25 131.93,126.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="27"/>
+<polygon points="131.93,126.25 208.43,126.25 208.43,105.25 131.93,105.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="28"/>
+<polygon points="217.43,126.25 283.93,126.25 283.93,105.25 217.43,105.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="29"/>
+<polygon points="131.93,105.25 283.93,105.25 283.93,94.25 131.93,94.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="30"/>
+<polygon points="122.93,94.75 123.73,94.75 123.73,94.25 122.93,94.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="31"/>
+<polygon points="292.13,94.75 292.93,94.75 292.93,94.25 292.13,94.25" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="32"/>
+<polygon points="121.93,94.25 293.93,94.25 293.93,90.75 121.93,90.75" fill="#a89494" fill-opacity="0.5" stroke="none" class="fl" data-i="33"/>
+</g>
+<g id="OPENINGS" data-layer="OPENINGS" stroke="#8a4b00" stroke-width="0.25" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="212.43" y1="160.25" x2="212.43" y2="139.25" stroke="#e8f1f8" class="ln" data-i="34" pathLength="1"/>
+<line x1="203.43" y1="139.25" x2="212.43" y2="139.25" stroke="#e8f1f8" class="ln" data-i="35" pathLength="1"/>
+<line x1="203.43" y1="160.25" x2="203.43" y2="139.25" stroke="#e8f1f8" class="ln" data-i="36" pathLength="1"/>
+<line x1="167.43" y1="160.25" x2="167.43" y2="139.25" stroke="#e8f1f8" class="ln" data-i="37" pathLength="1"/>
+<line x1="158.43" y1="139.25" x2="167.43" y2="139.25" stroke="#e8f1f8" class="ln" data-i="38" pathLength="1"/>
+<line x1="158.43" y1="160.25" x2="158.43" y2="139.25" stroke="#e8f1f8" class="ln" data-i="39" pathLength="1"/>
+<line x1="269.93" y1="160.25" x2="269.93" y2="139.25" stroke="#e8f1f8" class="ln" data-i="40" pathLength="1"/>
+<line x1="260.93" y1="139.25" x2="269.93" y2="139.25" stroke="#e8f1f8" class="ln" data-i="41" pathLength="1"/>
+<line x1="260.93" y1="160.25" x2="260.93" y2="139.25" stroke="#e8f1f8" class="ln" data-i="42" pathLength="1"/>
+</g>
+<g id="SECTION-CUT" data-layer="SECTION-CUT" stroke="#000000" stroke-width="0.6" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="131.93" y1="161.75" x2="283.93" y2="161.75" stroke="#e8f1f8" class="ln" data-i="43" pathLength="1"/>
+<line x1="133.93" y1="160.25" x2="192.43" y2="160.25" stroke="#e8f1f8" class="ln" data-i="44" pathLength="1"/>
+<line x1="193.43" y1="160.25" x2="222.43" y2="160.25" stroke="#e8f1f8" class="ln" data-i="45" pathLength="1"/>
+<line x1="223.43" y1="160.25" x2="247.43" y2="160.25" stroke="#e8f1f8" class="ln" data-i="46" pathLength="1"/>
+<line x1="248.43" y1="160.25" x2="281.93" y2="160.25" stroke="#e8f1f8" class="ln" data-i="47" pathLength="1"/>
+<line x1="133.93" y1="127.75" x2="192.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="48" pathLength="1"/>
+<line x1="193.43" y1="127.75" x2="222.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="49" pathLength="1"/>
+<line x1="223.43" y1="127.75" x2="247.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="50" pathLength="1"/>
+<line x1="248.43" y1="127.75" x2="281.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="51" pathLength="1"/>
+<line x1="208.43" y1="126.25" x2="217.43" y2="126.25" stroke="#e8f1f8" class="ln" data-i="52" pathLength="1"/>
+<line x1="208.43" y1="105.25" x2="217.43" y2="105.25" stroke="#e8f1f8" class="ln" data-i="53" pathLength="1"/>
+<line x1="122.93" y1="94.75" x2="123.73" y2="94.75" stroke="#e8f1f8" class="ln" data-i="54" pathLength="1"/>
+<line x1="292.13" y1="94.75" x2="292.93" y2="94.75" stroke="#e8f1f8" class="ln" data-i="55" pathLength="1"/>
+<line x1="121.93" y1="94.25" x2="122.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="56" pathLength="1"/>
+<line x1="123.73" y1="94.25" x2="131.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="57" pathLength="1"/>
+<line x1="283.93" y1="94.25" x2="292.13" y2="94.25" stroke="#e8f1f8" class="ln" data-i="58" pathLength="1"/>
+<line x1="292.93" y1="94.25" x2="293.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="59" pathLength="1"/>
+<line x1="121.93" y1="90.75" x2="293.93" y2="90.75" stroke="#e8f1f8" class="ln" data-i="60" pathLength="1"/>
+<line x1="121.93" y1="94.25" x2="121.93" y2="90.75" stroke="#e8f1f8" class="ln" data-i="61" pathLength="1"/>
+<line x1="122.93" y1="94.75" x2="122.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="62" pathLength="1"/>
+<line x1="123.73" y1="94.75" x2="123.73" y2="94.25" stroke="#e8f1f8" class="ln" data-i="63" pathLength="1"/>
+<line x1="131.93" y1="161.75" x2="131.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="64" pathLength="1"/>
+<line x1="133.93" y1="160.25" x2="133.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="65" pathLength="1"/>
+<line x1="192.43" y1="160.25" x2="192.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="66" pathLength="1"/>
+<line x1="193.43" y1="160.25" x2="193.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="67" pathLength="1"/>
+<line x1="208.43" y1="126.25" x2="208.43" y2="105.25" stroke="#e8f1f8" class="ln" data-i="68" pathLength="1"/>
+<line x1="217.43" y1="126.25" x2="217.43" y2="105.25" stroke="#e8f1f8" class="ln" data-i="69" pathLength="1"/>
+<line x1="222.43" y1="160.25" x2="222.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="70" pathLength="1"/>
+<line x1="223.43" y1="160.25" x2="223.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="71" pathLength="1"/>
+<line x1="247.43" y1="160.25" x2="247.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="72" pathLength="1"/>
+<line x1="248.43" y1="160.25" x2="248.43" y2="127.75" stroke="#e8f1f8" class="ln" data-i="73" pathLength="1"/>
+<line x1="281.93" y1="160.25" x2="281.93" y2="127.75" stroke="#e8f1f8" class="ln" data-i="74" pathLength="1"/>
+<line x1="283.93" y1="161.75" x2="283.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="75" pathLength="1"/>
+<line x1="292.13" y1="94.75" x2="292.13" y2="94.25" stroke="#e8f1f8" class="ln" data-i="76" pathLength="1"/>
+<line x1="292.93" y1="94.75" x2="292.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="77" pathLength="1"/>
+<line x1="293.93" y1="94.25" x2="293.93" y2="90.75" stroke="#e8f1f8" class="ln" data-i="78" pathLength="1"/>
+</g>
+<g id="LEVELS" data-layer="LEVELS" stroke="#1f5fa8" stroke-width="0.25" stroke-dasharray="4 1 0.6 1" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="115.93" y1="160.25" x2="299.93" y2="160.25" stroke="#e8f1f8" class="ln" data-i="79" pathLength="1"/>
+<text x="301.43" y="160.25" font-size="2.00" text-anchor="start" dominant-baseline="central" fill="#38bdf8" stroke="none" class="tx">+0.00  Ground Floor</text>
+<line x1="115.93" y1="126.25" x2="299.93" y2="126.25" stroke="#e8f1f8" class="ln" data-i="80" pathLength="1"/>
+<text x="301.43" y="126.25" font-size="2.00" text-anchor="start" dominant-baseline="central" fill="#38bdf8" stroke="none" class="tx">+3.40  First Floor</text>
+<line x1="115.93" y1="94.25" x2="299.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="81" pathLength="1"/>
+<text x="301.43" y="94.25" font-size="2.00" text-anchor="start" dominant-baseline="central" fill="#38bdf8" stroke="none" class="tx">+6.60  top</text>
+</g>
+<g id="GROUND" data-layer="GROUND" stroke="#000000" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="115.93" y1="160.25" x2="299.93" y2="160.25" stroke="#e8f1f8" class="ln" data-i="82" pathLength="1"/>
+</g>
+<g id="DIMS" data-layer="DIMS" stroke="#444444" stroke-width="0.18" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="114.93" y1="160.25" x2="106.43" y2="160.25" stroke="#e8f1f8" class="ln" data-i="83" pathLength="1"/>
+<line x1="107.03" y1="161.15" x2="108.83" y2="159.35" stroke="#e8f1f8" class="ln" data-i="84" pathLength="1"/>
+<line x1="114.93" y1="126.25" x2="106.43" y2="126.25" stroke="#e8f1f8" class="ln" data-i="85" pathLength="1"/>
+<line x1="107.03" y1="127.15" x2="108.83" y2="125.35" stroke="#e8f1f8" class="ln" data-i="86" pathLength="1"/>
+<line x1="107.93" y1="160.25" x2="107.93" y2="126.25" stroke="#e8f1f8" class="ln" data-i="87" pathLength="1"/>
+<text x="105.53" y="143.25" font-size="2.00" text-anchor="middle" dominant-baseline="central" transform="rotate(-90.0 105.53 143.25)" fill="#e8f1f8" stroke="none" class="tx">3.40</text>
+<line x1="114.93" y1="126.25" x2="106.43" y2="126.25" stroke="#e8f1f8" class="ln" data-i="88" pathLength="1"/>
+<line x1="107.03" y1="127.15" x2="108.83" y2="125.35" stroke="#e8f1f8" class="ln" data-i="89" pathLength="1"/>
+<line x1="114.93" y1="94.25" x2="106.43" y2="94.25" stroke="#e8f1f8" class="ln" data-i="90" pathLength="1"/>
+<line x1="107.03" y1="95.15" x2="108.83" y2="93.35" stroke="#e8f1f8" class="ln" data-i="91" pathLength="1"/>
+<line x1="107.93" y1="126.25" x2="107.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="92" pathLength="1"/>
+<text x="105.53" y="110.25" font-size="2.00" text-anchor="middle" dominant-baseline="central" transform="rotate(-90.0 105.53 110.25)" fill="#e8f1f8" stroke="none" class="tx">3.20</text>
+<line x1="114.93" y1="160.25" x2="99.43" y2="160.25" stroke="#e8f1f8" class="ln" data-i="93" pathLength="1"/>
+<line x1="100.03" y1="161.15" x2="101.83" y2="159.35" stroke="#e8f1f8" class="ln" data-i="94" pathLength="1"/>
+<line x1="114.93" y1="94.25" x2="99.43" y2="94.25" stroke="#e8f1f8" class="ln" data-i="95" pathLength="1"/>
+<line x1="100.03" y1="95.15" x2="101.83" y2="93.35" stroke="#e8f1f8" class="ln" data-i="96" pathLength="1"/>
+<line x1="100.93" y1="160.25" x2="100.93" y2="94.25" stroke="#e8f1f8" class="ln" data-i="97" pathLength="1"/>
+<text x="98.53" y="127.25" font-size="2.00" text-anchor="middle" dominant-baseline="central" transform="rotate(-90.0 98.53 127.25)" fill="#e8f1f8" stroke="none" class="tx">6.60</text>
+<line x1="132.93" y1="162.75" x2="132.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="98" pathLength="1"/>
+<line x1="132.03" y1="170.65" x2="133.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="99" pathLength="1"/>
+<line x1="192.93" y1="162.75" x2="192.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="100" pathLength="1"/>
+<line x1="192.03" y1="170.65" x2="193.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="101" pathLength="1"/>
+<line x1="132.93" y1="169.75" x2="192.93" y2="169.75" stroke="#e8f1f8" class="ln" data-i="102" pathLength="1"/>
+<text x="162.93" y="168.15" font-size="2.00" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">6.00</text>
+<line x1="192.93" y1="162.75" x2="192.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="103" pathLength="1"/>
+<line x1="192.03" y1="170.65" x2="193.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="104" pathLength="1"/>
+<line x1="222.93" y1="162.75" x2="222.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="105" pathLength="1"/>
+<line x1="222.03" y1="170.65" x2="223.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="106" pathLength="1"/>
+<line x1="192.93" y1="169.75" x2="222.93" y2="169.75" stroke="#e8f1f8" class="ln" data-i="107" pathLength="1"/>
+<text x="207.93" y="168.15" font-size="2.00" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">3.00</text>
+<line x1="222.93" y1="162.75" x2="222.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="108" pathLength="1"/>
+<line x1="222.03" y1="170.65" x2="223.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="109" pathLength="1"/>
+<line x1="247.93" y1="162.75" x2="247.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="110" pathLength="1"/>
+<line x1="247.03" y1="170.65" x2="248.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="111" pathLength="1"/>
+<line x1="222.93" y1="169.75" x2="247.93" y2="169.75" stroke="#e8f1f8" class="ln" data-i="112" pathLength="1"/>
+<text x="235.43" y="168.15" font-size="2.00" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">2.50</text>
+<line x1="247.93" y1="162.75" x2="247.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="113" pathLength="1"/>
+<line x1="247.03" y1="170.65" x2="248.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="114" pathLength="1"/>
+<line x1="282.93" y1="162.75" x2="282.93" y2="171.25" stroke="#e8f1f8" class="ln" data-i="115" pathLength="1"/>
+<line x1="282.03" y1="170.65" x2="283.83" y2="168.85" stroke="#e8f1f8" class="ln" data-i="116" pathLength="1"/>
+<line x1="247.93" y1="169.75" x2="282.93" y2="169.75" stroke="#e8f1f8" class="ln" data-i="117" pathLength="1"/>
+<text x="265.43" y="168.15" font-size="2.00" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">3.50</text>
+<line x1="132.93" y1="162.75" x2="132.93" y2="178.25" stroke="#e8f1f8" class="ln" data-i="118" pathLength="1"/>
+<line x1="132.03" y1="177.65" x2="133.83" y2="175.85" stroke="#e8f1f8" class="ln" data-i="119" pathLength="1"/>
+<line x1="282.93" y1="162.75" x2="282.93" y2="178.25" stroke="#e8f1f8" class="ln" data-i="120" pathLength="1"/>
+<line x1="282.03" y1="177.65" x2="283.83" y2="175.85" stroke="#e8f1f8" class="ln" data-i="121" pathLength="1"/>
+<line x1="132.93" y1="176.75" x2="282.93" y2="176.75" stroke="#e8f1f8" class="ln" data-i="122" pathLength="1"/>
+<text x="207.93" y="175.15" font-size="2.00" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">15.00</text>
+</g>
+<g id="SYMBOLS" data-layer="SYMBOLS" stroke="#000000" stroke-width="0.25" stroke-linejoin="round" stroke-linecap="butt">
+
+
+
+
+
+
+</g>
+<g id="TEXT" data-layer="TEXT" stroke="#000000" stroke-width="0.18" stroke-linejoin="round" stroke-linecap="butt">
+<text x="163.18" y="144.0" font-size="2.50" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#e8f1f8" stroke="none" class="tx">Kitchen</text>
+<text x="163.18" y="147.0" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">clear h 3.25</text>
+<text x="207.93" y="144.0" font-size="2.50" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#e8f1f8" stroke="none" class="tx">Hall</text>
+<text x="207.93" y="147.0" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">clear h 3.25</text>
+<text x="235.43" y="144.0" font-size="2.50" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#e8f1f8" stroke="none" class="tx">Powder Room</text>
+<text x="235.43" y="147.0" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">clear h 3.25</text>
+<text x="265.18" y="144.0" font-size="2.50" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#e8f1f8" stroke="none" class="tx">Guest Bedroom</text>
+<text x="265.18" y="147.0" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#e8f1f8" stroke="none" class="tx">clear h 3.25</text>
+</g>
+</svg>

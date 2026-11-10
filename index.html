@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hatchline: massing and drawings for Malaysian architects</title>
+<meta name="description" content="Block out a building in 3D, get plans, sections and elevations that draw themselves, and review a finished IFC drawing for where a cost could come down. Hatchline runs on your own Windows computer.">
+<meta property="og:title" content="Hatchline">
+<meta property="og:description" content="Massing and drawings for Malaysian architects.">
+<link rel="canonical" href="https://hatchline.my/index.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hatchline.my/index.html">
+<meta property="og:site_name" content="Hatchline">
+<meta property="og:image" content="https://hatchline.my/assets/og-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hatchline.my/assets/og-share.jpg">
+<meta name="theme-color" content="#f7faff">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('hatchline.motion')==='off')document.documentElement.dataset.motion='off'}catch(e){}</script>
+<style>
+:root{
+  --bg:#f7faff; --bg2:#eaf1fc; --panel:#ffffff; --line:#e1e9f5; --line2:#cfdbec;
+  --text:#0c1a2b; --muted:#4d5f78; --dim:#74849b; --accent:#f2a516; --accent-ink:#1b1200; --blue:#2563eb; --navy:#0f2a3f;
+  --shadow:0 1px 2px rgba(15,42,63,.06),0 18px 40px -18px rgba(15,42,63,.22);
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(16px,5vw,48px); --max:1160px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{position:relative}
+body::before{content:"";position:absolute;inset:0 0 auto;height:900px;z-index:-1;background:radial-gradient(60% 55% at 15% 0,rgba(37,99,235,.10),transparent 70%),radial-gradient(55% 60% at 90% 10%,rgba(37,99,235,.20),transparent 70%),radial-gradient(rgba(15,42,63,.09) 1px,transparent 1.2px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+a{color:inherit;text-decoration:none}
+img,video,svg{display:block;max-width:100%;height:auto}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.05;letter-spacing:-.01em}
+h1{font-size:clamp(40px,8vw,88px)}
+h2{font-size:clamp(30px,5vw,52px)}
+h3{font-size:22px;line-height:1.2}
+p{color:var(--muted)}
+.eyebrow{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font:700 22px/1 var(--sans);letter-spacing:-.02em}
+.brand img{width:34px;height:34px}
+.links{display:flex;align-items:center;gap:26px;font-size:14px;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font:600 15px/1 var(--sans);border:1px solid var(--line2);background:var(--panel);color:var(--text);cursor:pointer;transition:transform .15s,border-color .15s,background .15s}
+.btn{box-shadow:0 1px 2px rgba(15,42,63,.08)}
+.btn:hover{border-color:#8aa3c6;transform:translateY(-1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary{box-shadow:0 10px 24px -10px rgba(242,165,22,.9)}
+.btn.primary:hover{background:#ffb72e}
+.btn.small{padding:9px 14px;font-size:14px;border-radius:10px}
+@media(max-width:760px){.links a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:clamp(48px,9vw,110px) 0 0;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:99px;border:1px solid var(--line2);background:var(--panel);font-size:14px;color:var(--muted);margin-bottom:30px}
+.pill{box-shadow:var(--shadow)}
+.pill b{background:var(--blue);color:#fff;border-radius:99px;padding:4px 10px;font-size:12px;letter-spacing:.04em}
+.hero h1 mark{background:linear-gradient(transparent 62%,rgba(37,99,235,.20) 62%);color:inherit;padding:0 .08em}
+.hero p.lead{max-width:640px;margin:26px auto 0;font-size:clamp(17px,2.2vw,20px)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.note{font-size:13px;color:var(--dim);margin-top:16px}
+.stage{position:relative;margin:clamp(40px,7vw,80px) auto 0;max-width:1000px}
+.stage::before{content:"";position:absolute;inset:-6% -8% auto;height:70%;background:radial-gradient(closest-side,rgba(37,99,235,.25),transparent);filter:blur(30px);z-index:-1}
+.window{border:1px solid #1f3147;border-radius:18px;overflow:hidden;background:#0a1019;box-shadow:0 50px 90px -35px rgba(15,42,63,.55),0 8px 20px -8px rgba(15,42,63,.3)}
+.bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid #1c2a3d;background:#0d1520}
+.bar i{width:10px;height:10px;border-radius:50%;background:#ff6b5e}
+.bar i:nth-child(2){background:#ffbd3d}.bar i:nth-child(3){background:#2fc65a}
+.bar span{margin-left:10px;font-size:12px;color:#7d8ea6}
+.window img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.95);border:1px solid var(--line2);backdrop-filter:blur(8px);font-size:14px;text-align:left;box-shadow:var(--shadow);color:var(--text)}
+.chip em{font-style:normal;color:var(--blue);font-weight:700}
+.chip.a{left:-3%;bottom:14%}
+.chip.b{right:-3%;top:12%}
+@media(max-width:760px){.chip{display:none}.stage::before{inset:-6% 0 auto}}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:clamp(56px,8vw,96px)}
+.facts{box-shadow:var(--shadow)}
+.facts div{background:#fff;padding:22px 22px 24px}
+.facts b{display:block;font:700 26px/1.1 var(--serif);margin-bottom:6px}
+.facts span{font-size:14px;color:var(--muted)}
+@media(max-width:820px){.facts{grid-template-columns:1fr 1fr}}
+
+/* sections */
+section{padding:clamp(64px,10vw,130px) 0}
+.head{max-width:680px;margin-bottom:clamp(32px,5vw,56px)}
+.head p{margin-top:16px;font-size:18px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.split.flip .copy{order:2}
+@media(max-width:860px){.split{grid-template-columns:1fr}.split.flip .copy{order:0}}
+.copy p{margin-top:16px;font-size:17px}
+.copy ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.copy li{display:flex;gap:12px;color:var(--muted);font-size:16px}
+.copy li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100%}
+.card{border:1px solid var(--line2);border-radius:18px;background:var(--panel);overflow:hidden;box-shadow:var(--shadow)}
+.card.dark{background:#08101a;border-color:#1f3147}
+.card.pad{padding:22px}
+
+/* by-law panel */
+.laws{display:grid;gap:0}
+.laws div{display:flex;justify-content:space-between;gap:16px;padding:14px 4px;border-bottom:1px solid var(--line);font-size:15px}
+.laws div:last-child{border:0}
+.laws b{font-weight:700;white-space:nowrap;color:var(--navy)}
+.laws span{color:var(--muted);text-align:right}
+.disclaimer{margin-top:18px;font-size:14px;color:var(--muted);border-left:2px solid var(--blue);padding-left:14px}
+
+/* drawings */
+.board{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.board .card{padding:14px;background:#08101a;border-color:#1f3147}
+.board svg,.board img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+.board .tall img{aspect-ratio:4/5}
+.plan-one img{max-height:540px;width:100%;object-fit:contain}
+.board .cap{font-size:13px;color:#7d8ea6;margin-top:10px;display:flex;justify-content:space-between}
+@media(max-width:700px){.board{grid-template-columns:1fr}}
+
+/* formats */
+.formats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.formats span{padding:9px 15px;border-radius:99px;border:1px solid var(--line2);background:#fff;font-size:14px;font-weight:500;color:var(--navy);box-shadow:0 1px 2px rgba(15,42,63,.06)}
+
+/* lessons */
+.lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lesson{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.lesson:hover{border-color:#9db6dc;transform:translateY(-2px)}
+.lesson b{flex:none;width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(135deg,var(--blue),#4f8cff);color:#fff;font:700 15px/1 var(--sans)}
+.lesson h3{font:600 17px/1.3 var(--sans);margin:3px 0 4px;letter-spacing:0}
+.lesson p{font-size:14px}
+@media(max-width:900px){.lessons{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.lessons{grid-template-columns:1fr}}
+
+/* film */
+.film video{width:100%;border-radius:18px;border:1px solid #1f3147;background:#000;aspect-ratio:16/9;box-shadow:0 40px 80px -40px rgba(15,42,63,.6)}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1220px;margin:0 auto}
+.plans .price{max-width:none;text-align:left;padding:28px;display:flex;flex-direction:column}
+.plans .price .amount{font-size:clamp(38px,4vw,52px)}
+.plans .price .amount small{display:block;font-size:15px;margin-top:6px}
+.plans .price ul{margin:20px 0 22px;gap:10px;font-size:15px;flex:1}
+.plans .price .for{font-size:14px;margin:0}
+.plans .price .no{font-size:13px;color:#8aa0bb;margin:-8px 0 20px}
+.plans .price.feature{transform:translateY(-16px);box-shadow:0 60px 90px -36px rgba(15,42,63,.85)}
+.plans .price .btn{background:#fff;border-color:#fff;color:var(--navy)}
+@media(max-width:1060px){.plans .price.feature{transform:none}}
+@media(max-width:1060px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.plans{grid-template-columns:1fr}}
+.price{max-width:520px;margin:0 auto;text-align:center;padding:clamp(28px,5vw,44px);border-radius:26px;background:linear-gradient(160deg,#143650,#0b2133);color:#fff;box-shadow:0 50px 90px -40px rgba(15,42,63,.7)}
+.price p{color:#b4c4d8}
+.price .eyebrow{color:#9cc1ff}
+.price .amount{font:700 clamp(54px,9vw,76px)/1 var(--serif);margin:18px 0 4px}
+.price .amount small{font:500 18px var(--sans);color:#9fb3cc}
+.price ul{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:12px;text-align:left}
+.price li{display:flex;gap:12px;color:#d5e0ee}
+.price li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100%}
+.price .btn{width:100%;justify-content:center;padding:16px}
+
+/* drawing review */
+.rv-card{padding:22px}
+.rv-card .rv-title{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;font-size:13px;color:var(--dim);margin-bottom:14px}
+.rv-card .rv-title b{font:700 15px/1.2 var(--sans);color:var(--navy)}
+.rv-row{padding:14px 0;border-top:1px solid var(--line)}
+.rv-row p{font-size:14px;margin-top:6px}
+.rv-row .t{font:600 15px/1.35 var(--sans);color:var(--text)}
+.rv-tag{display:inline-block;margin-right:8px;padding:3px 9px;border-radius:99px;font:700 11px/1.4 var(--sans);letter-spacing:.04em;text-transform:uppercase;vertical-align:1px}
+.rv-tag.ok{background:#dcf5e6;color:#14663a}
+.rv-tag.eng{background:#fdecc8;color:#7a4a00}
+.rv-foot{margin-top:6px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{position:relative;padding:26px 24px 24px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--navy);color:#fff;font:700 17px/1 var(--sans);margin-bottom:16px}
+.step h3{font:600 19px/1.3 var(--sans);letter-spacing:0;margin-bottom:6px}
+.step p{font-size:15px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tool{display:flex;flex-direction:column;padding:26px 24px 22px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow)}
+.tool .tag{align-self:flex-start;margin-bottom:14px;padding:4px 10px;border-radius:99px;background:var(--bg2);color:var(--navy);font:700 11px/1.4 var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.tool h3{font:600 20px/1.3 var(--sans);letter-spacing:0;margin-bottom:8px}
+.tool p{font-size:15px}
+.tool .limit{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:var(--dim)}
+.tool p + .limit{margin-top:16px}
+@media(max-width:900px){.tools{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tools{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font:600 18px/1.4 var(--sans);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--blue);font-size:24px;line-height:1}
+details[open] summary::after{content:"\2212"}
+summary::-webkit-details-marker{display:none}
+details p{margin-top:12px}
+
+/* closing + footer */
+.closing{text-align:center;border-radius:28px;padding:clamp(40px,8vw,90px) var(--gutter);background:radial-gradient(60% 90% at 10% 0,rgba(242,165,22,.35),transparent 70%),radial-gradient(60% 90% at 95% 100%,rgba(37,99,235,.28),transparent 70%),#fff;border:1px solid var(--line2);box-shadow:var(--shadow)}
+.closing p{max-width:520px;margin:18px auto 0;font-size:18px}
+footer{border-top:1px solid var(--line);padding:36px 0 56px;color:var(--dim);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a:hover{color:var(--text)}
+.sr{position:absolute;left:-9999px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* the motion switch, the plan finder, the lesson picker, the question search */
+html[data-motion=off] *,html[data-motion=off] *::before,html[data-motion=off] *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+.motion{font:600 12px/1 var(--sans);padding:8px 11px;border-radius:99px;border:1px solid var(--line2);background:#fff;color:var(--navy);cursor:pointer}
+.motion[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:24px}
+.cta-row .link{font-weight:600;color:var(--blue);border-bottom:1px solid currentColor}
+.finder{position:relative;z-index:2;max-width:980px;margin:clamp(-60px,-4vw,-30px) auto clamp(40px,6vw,70px);padding:clamp(22px,3.4vw,36px);border-radius:24px;background:#fff;border:1px solid var(--line2);box-shadow:0 50px 80px -40px rgba(15,42,63,.45)}
+.finder h3{font:700 clamp(22px,2.6vw,30px)/1.15 var(--serif);margin:0 0 20px;color:var(--navy)}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 20px}
+.fgrid label,.fgrid fieldset{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted);border:0;padding:0;min-width:0}
+.fgrid legend,.fgrid .lab{font-weight:600;color:var(--navy);margin-bottom:4px;padding:0}
+.fgrid select,.fgrid input[type=number]{font:500 15px var(--sans);padding:10px 12px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--text);width:100%}
+.fgrid .row{display:flex;gap:8px;align-items:center}
+.fgrid .need{grid-column:1/-1}
+.fgrid .need div{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 16px}
+.fgrid .need label{flex-direction:row;align-items:flex-start;gap:8px;color:var(--text)}
+.fout{margin-top:22px;padding:20px 22px;border-radius:16px;background:var(--bg2);display:grid;gap:10px}
+.fout b.big{font:700 clamp(24px,3vw,34px)/1.1 var(--serif);color:var(--navy)}
+.fout ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+.fout .meter{display:block;height:8px;border-radius:99px;background:#fff;overflow:hidden;position:static}.fout .meter i{display:block;height:100%;background:var(--blue)}
+.fout .btn{justify-self:start}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}.fgrid .need div{grid-template-columns:1fr}}
+.picker{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;margin:0 0 26px}
+.picker select{font:500 15px var(--sans);padding:10px 12px;border:1px solid var(--line2);border-radius:10px;background:#fff;min-width:260px}
+.picker p{flex-basis:100%;margin:0;color:var(--navy);font-weight:600}
+.lesson.pick{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.18),var(--shadow)}
+.faqsearch{display:block;max-width:760px;margin:0 auto 18px}
+.faqsearch input{width:100%;font:500 16px var(--sans);padding:13px 16px;border:1px solid var(--line2);border-radius:12px;background:#fff}
+.faq details.hide{display:none}
+.faqnone{max-width:760px;margin:12px auto;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index-new.html" aria-label="Hatchline: back to the start"><img src="assets/logo.svg" alt="" width="34" height="34">hatchline</a>
+    <div class="links">
+      <a href="index-new.html">Home</a>
+      <a href="#features">Features</a>
+      <a href="#land">From the land</a>
+      <a href="#tools">Tools</a>
+      <a href="#drawings">Drawings</a>
+      <a href="#learn">Learn</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <button class="motion" id="motionBtn" type="button" aria-pressed="false" title="Turn animation off or on">Motion on</button>
+      <a class="btn small primary" href="#pricing">Subscribe</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="pill"><b>NEW</b> Nine short lessons: learn Hatchline in an afternoon</div>
+    <h1>Block it out.<br><mark>Draw it once.</mark></h1>
+    <p class="lead">Hatchline is the massing tool for Malaysian architects. Put rooms on levels, see them in 3D, and let the drawings draw themselves.</p>
+    <div class="cta">
+      <a class="btn primary" href="#pricing">Subscribe</a>
+      <a class="btn" href="#film">&#9654;&nbsp; Watch the film</a>
+    </div>
+    <p class="note">Windows. Your models are saved on your computer.</p>
+
+    <div class="stage">
+      <div class="window">
+        <div class="bar"><i></i><i></i><i></i><span>Terrace house, 2 storeys</span></div>
+        <img src="assets/hero3d.jpg" alt="A two-storey terrace house massing model in the Hatchline 3D view" width="1920" height="1080" fetchpriority="high">
+      </div>
+      <div class="chip b"><span>Photo renders<br><em>made from your model</em></span></div>
+      <div class="chip a"><span>Plans, sections, elevations<br><em>draw themselves</em></span></div>
+    </div>
+
+    <div class="facts">
+      <div><b>Renders</b><span>Photo-style pictures of your model</span></div>
+      <div><b>3D</b><span>Drag rooms, step inside</span></div>
+      <div><b>IFC &middot; DXF &middot; 3dm</b><span>Export to your own software</span></div>
+      <div><b>On your PC</b><span>Models saved on your own computer</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">For Malaysian architects</div>
+      <h2>Stop redrawing the same building in five tools.</h2>
+      <p>Block the building out once, in 3D. Hatchline draws the plans, sections and elevations from it, and lists what the by-laws it can judge say about it. You change the model; everything else follows.</p>
+      <div class="cta-row"><a class="btn primary" href="#finder">Find your plan</a><a class="link" href="#film">Watch the forty-second film</a></div>
+    </div>
+
+    <div class="split" style="margin-bottom:clamp(56px,8vw,110px)">
+      <div class="copy">
+        <div class="eyebrow">Model</div>
+        <h2>Build it the way you think.</h2>
+        <p>Rooms, levels, roofs and openings. Drag a room and the building follows. Pull the levels apart to see each one, cut the building open, or step inside.</p>
+        <ul>
+          <li>Type a command, or use the drawing tools</li>
+          <li>Sun and shadow for your site, at the hour you choose</li>
+          <li>Undo anything, and keep every version</li>
+        </ul>
+      </div>
+      <div class="card"><img src="assets/hero3d.jpg" alt="3D massing model" loading="lazy" width="1920" height="1080"></div>
+    </div>
+
+    <div class="split flip" style="margin-bottom:clamp(56px,8vw,110px)">
+      <div class="copy">
+        <div class="eyebrow">Check</div>
+        <h2>The by-laws, read for you.</h2>
+        <p>Hatchline measures your model against the by-laws and lists what fails, what passes and what it cannot judge yet, with the by-law number beside each line.</p>
+        <p class="disclaimer">A planning aid, not a certificate. The registered Architect or other Qualified Person submitting still checks and signs.</p>
+      </div>
+      <div class="card pad">
+        <div class="laws">
+          <div><b>By-law 44(1)</b><span>Room heights, residential</span></div>
+          <div><b>By-law 46(1)</b><span>Room heights, other buildings</span></div>
+          <div><b>By-laws 32 &ndash; 34</b><span>The building on its lot</span></div>
+          <div><b>By-law 38</b><span>Distance from the boundary</span></div>
+          <div><b>Fire escape</b><span>By the use of the building</span></div>
+          <div><b>Shophouses</b><span>44(3), with the 2.55 m rule</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="copy">
+        <div class="eyebrow">Draw and share</div>
+        <h2>Drawings that draw themselves.</h2>
+        <p>Plans, a section and elevations come straight from the model, so they never go out of date. Send them on in the format your consultants use.</p>
+        <div class="formats"><span>IFC</span><span>DXF</span><span>Rhino 3dm</span><span>Excel</span><span>PowerPoint</span></div>
+      </div>
+      <div class="card dark plan-one" style="padding:14px"><img src="assets/plan1.dark.svg" alt="Ground floor plan drawn by Hatchline" loading="lazy" width="800" height="600"></div>
+    </div>
+  </div>
+</section>
+
+<section id="land" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" style="margin-inline:auto;text-align:center">
+      <div class="eyebrow">Start from the land</div>
+      <h2>Pin the plot in Google. Design on it in Hatchline.</h2>
+      <p style="margin-inline:auto">The architect finds the land in Google, draws one shape round the plot, and brings it in. Hatchline measures it, draws the Plot sheet, and the design starts from the real plot.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Pin it in Google</h3><p>Find the land in Google Maps and drop a pin. Paste the pin&rsquo;s link into Hatchline: it reads the place on your own computer, and sends nothing.</p></div>
+      <div class="step"><h3>Bring the shape in</h3><p>In Google My Maps or Google Earth, draw one shape round the plot and save it as a KMZ or KML file. Choose it in Hatchline, or drop it on the window. Only the shape is taken: no Google picture is copied.</p></div>
+      <div class="step"><h3>Measure and design</h3><p>Hatchline draws the plot to scale and measures it: the area in m&sup2;, square feet and acres, and every side. One click makes it the site, and a starting house is laid out to fit it.</p></div>
+    </div>
+
+    <div class="split" style="margin-top:clamp(48px,7vw,96px)">
+      <div class="copy">
+        <div class="eyebrow">The Plot sheet</div>
+        <h2>The land, drawn and measured.</h2>
+        <p>Every plot can have its own sheet, in the same title block as your other drawings, so the building is traced on the real boundary.</p>
+        <ul>
+          <li>The boundary with the length of every side</li>
+          <li>Lettered corners with their coordinates, and the area</li>
+          <li>North, the street side, the setbacks you set, and the building on the plot</li>
+          <li>As PDF, SVG or DXF, like every other sheet</li>
+        </ul>
+        <p class="disclaimer">An outline drawn on a map is a planning aid, not a survey. The land title and the survey plan decide the boundary.</p>
+      </div>
+      <div class="card" style="padding:14px"><img src="assets/plotsheet.svg" alt="The Plot sheet: a five-sided plot with every side measured, lettered corners with coordinates, the area, a north arrow and the house on it" loading="lazy" width="1000" height="707"></div>
+    </div>
+
+    <div class="film" style="margin-top:clamp(48px,7vw,96px)">
+      <div class="head" style="margin-inline:auto;text-align:center;margin-bottom:28px">
+        <div class="eyebrow">See the whole flow &middot; the Google pin step is in the Enterprise plan</div>
+        <h2>From a Google pin to structure sizes.</h2>
+        <p style="margin-inline:auto">One and a half minutes, in the real app: the pin, the plot, the Plot sheet, a starting house, and indicative structure sizes. The plot shown is made up.</p>
+      </div>
+      <video controls preload="none" playsinline poster="assets/flow-poster.jpg" src="assets/hatchline-flow.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<section id="review" style="padding-top:0">
+  <div class="wrap">
+    <div class="split flip">
+      <div class="copy">
+        <div class="eyebrow">Review</div>
+        <h2>Already drawn? See where the cost could come down.</h2>
+        <p>Export an IFC from Revit, ArchiCAD or SketchUp and open it in Hatchline. It reads the walls, slabs, doors, windows, structure, pipes, cables and ducts, adds them up sector by sector, and prices them with the rates you type. Hatchline has no building costs of its own, so it never guesses a figure.</p>
+        <ul>
+          <li>Finds identical elements drawn twice in the same place</li>
+          <li>Flags storeys much taller than the by-law minimum, and service runs longer than they need to be</li>
+          <li>Checks the glazing of each named room against By-law 39, where it can place the windows</li>
+          <li><span>Marks every suggestion <b>Verified</b> or <b>Needs the engineer</b>, and lists what it did not check</span></li>
+          <li>Hands you an Excel workbook with live formulas, or a PDF</li>
+        </ul>
+        <p class="disclaimer">A screening aid, not a certificate. Structure, electrical, plumbing and fire design are not checked; the engineers answer for them. The by-laws send the structure to the Eurocodes (MS EN 1990 to 1999) and MS 1553 for wind.</p>
+      </div>
+      <div class="card rv-card">
+        <div class="rv-title"><b>Review a drawing</b><span>Example: a small test model</span></div>
+        <div class="rv-row"><span class="rv-tag ok">Verified</span><span class="t">2 identical walls in the same place on Ground</span><p>The same position and size to within 2 cm, so one of them is almost certainly a modelling duplicate.</p></div>
+        <div class="rv-row"><span class="rv-tag eng">Needs the engineer</span><span class="t">Ground: 4.00 m floor to floor, 3.80 m clear</span><p>The by-law minimum is 2.5 m. The storey could be lower, if the structure and services allow it.</p></div>
+        <div class="rv-row"><span class="rv-tag eng">Needs the engineer</span><span class="t">A cable route is 20.0 m longer than it needs to be</span><p>Measured along the axes of the building. A real route must go round columns and beams.</p></div>
+        <div class="rv-foot">Savings are shown only when you have typed a rate for that line.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="drawings" style="background:linear-gradient(180deg,#eaf1fc,#f7faff)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">From the same model</div>
+      <h2>Two floors, a section and an elevation.</h2>
+      <p>Drawn by Hatchline from the terrace-house model above. Nothing was redrawn by hand.</p>
+    </div>
+    <div class="board">
+      <figure class="card tall"><img src="assets/plan1.dark.svg" alt="Ground floor plan" loading="lazy" width="800" height="600"><figcaption class="cap"><span>Ground floor plan</span></figcaption></figure>
+      <figure class="card tall"><img src="assets/plan2.dark.svg" alt="First floor plan" loading="lazy" width="800" height="600"><figcaption class="cap"><span>First floor plan</span></figcaption></figure>
+      <figure class="card"><img src="assets/section.dark.svg" alt="Section" loading="lazy" width="800" height="600"><figcaption class="cap"><span>Section</span></figcaption></figure>
+      <figure class="card"><img src="assets/south.dark.svg" alt="South elevation" loading="lazy" width="800" height="600"><figcaption class="cap"><span>South elevation</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="tools" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" style="margin-inline:auto;text-align:center">
+      <div class="eyebrow">The paperwork</div>
+      <h2>The checks and figures an architect is asked for.</h2>
+      <p style="margin-inline:auto">Small tools that take what is already in your model and set it out the way a submission, a quantity surveyor or an engineer expects it. Each says plainly what it is not.</p>
+    </div>
+    <div class="tools">
+      <div class="tool"><span class="tag">Kuala Lumpur</span><h3>DBKL planning figures</h3>
+        <p>Your model&rsquo;s figures set out under the numbered headings of DBKL&rsquo;s planning permission forms (Borang A2 and A3): site area, plot ratio, floor area by storey in square feet, setbacks, plinth area, heights and parking. As an Excel worksheet, with the One Stop Centre checklist of what to hand in.</p>
+        <div class="limit">A worksheet to copy from, not the form. You fill, sign and submit it. DBKL&rsquo;s own rules decide what counts as floor area.</div></div>
+      <div class="tool"><span class="tag">Excel</span><h3>Bill of quantities by trade</h3>
+        <p>The measured quantities laid out as a bill: sections by trade, item numbers, a subtotal for each trade, and a collection page with the allowances you give. Live formulas, so changing a rate changes every total.</p>
+        <div class="limit">The rates are yours: Hatchline has no building costs. It is not a bill measured to a Standard Method of Measurement.</div></div>
+      <div class="tool"><span class="tag">Structure</span><h3>Structure sizes</h3>
+        <p>An indicative slab thickness, beam size and column size for each storey, from the rooms&rsquo; spans, a load you set, span-to-depth starting values and an axial column rule of thumb. It names any beam or column you drew that falls below its indicative size.</p>
+        <div class="limit">A first check, not a structural design. The Malaysian National Annex values for the Eurocodes are not used. The Professional Engineer designs the structure, certifies it, and answers for it.</div></div>
+      <div class="tool"><span class="tag">Access</span><h3>Access for disabled persons</h3>
+        <p>Ramp gradient, entrance and accessible-toilet doors, the size of an accessible toilet, accessible car-park bays and a lift to the upper floors, each marked as meeting or below the guideline value.</p>
+        <div class="limit">The values are taken from published guidance on MS 1184, not from the standard&rsquo;s text: check every figure against MS 1184:2014. It never says a design &ldquo;complies&rdquo;.</div></div>
+      <div class="tool"><span class="tag">UBBL 1984</span><h3>By-laws, read for you</h3>
+        <p>The model measured against the Uniform Building By-Laws 1984 (as amended to 2021) it can judge, with the by-law number beside each line, what passes, what fails, and what it cannot judge yet. The drawing review does the same for the glazing of a finished IFC, room by room.</p>
+        <div class="limit">A planning aid, not a certificate. The UBBL is a model text that each state gazettes, so check your state. The registered Architect or other Qualified Person submitting checks and signs.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="film" class="film">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">See it move</div>
+      <h2>Forty seconds, start to finish.</h2>
+    </div>
+    <video controls preload="none" playsinline poster="assets/hero3d.jpg" src="assets/hatchline-film.mp4"></video>
+  </div>
+</section>
+
+<section id="learn" style="background:linear-gradient(180deg,#f7faff,#eaf1fc 60%,#f7faff)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Learn it fast</div>
+      <h2>Nine short lessons. Start with the one you need.</h2>
+      <p>Each lesson is a few minutes, with a calm voice and captions. Tell us what you want to do first and we will point to the lesson.</p>
+    </div>
+    <div class="picker">
+      <label for="lGoal" style="font-weight:600;color:var(--navy)">What do you want to do first?</label>
+      <select id="lGoal">
+        <option value="">Choose one&hellip;</option>
+        <option value="1,2">Start from nothing</option>
+        <option value="2,3">Model a building</option>
+        <option value="4,5">Look at it in 3D and step inside</option>
+        <option value="6">Check the by-laws</option>
+        <option value="7">Get plans, sections and elevations</option>
+        <option value="8">Send it to my consultants</option>
+        <option value="9">Describe it in words</option>
+      </select>
+      <p id="lOut" aria-live="polite"></p>
+    </div>
+    <div class="lessons">
+      <div class="lesson"><b>1</b><div><h3>Find your way around</h3><p>The screen, and where things live.</p></div></div>
+      <div class="lesson"><b>2</b><div><h3>Start a model</h3><p>A first building on a blank page.</p></div></div>
+      <div class="lesson"><b>3</b><div><h3>Make it yours with commands</h3><p>Type what you want.</p></div></div>
+      <div class="lesson"><b>4</b><div><h3>Move around in 3D</h3><p>Orbit, slice and explode.</p></div></div>
+      <div class="lesson"><b>5</b><div><h3>Step inside</h3><p>Walk through your own rooms.</p></div></div>
+      <div class="lesson"><b>6</b><div><h3>Check the by-laws</h3><p>Read the results and act on them.</p></div></div>
+      <div class="lesson"><b>7</b><div><h3>Drawings</h3><p>Plans, sections, elevations.</p></div></div>
+      <div class="lesson"><b>8</b><div><h3>Export</h3><p>Send it to the rest of the team.</p></div></div>
+      <div class="lesson"><b>9</b><div><h3>Describe it in words</h3><p>Say what you want, see it built.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="start" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="head" style="margin-inline:auto;text-align:center">
+      <div class="eyebrow">Getting started</div>
+      <h2>Three steps, and you are drawing.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Subscribe</h3><p>Pay by card. You get an email with your activation code and the link to download Hatchline.</p></div>
+      <div class="step"><h3>Install on Windows</h3><p>Run the installer. Hatchline opens in its own window, and your models stay in a folder on your computer.</p></div>
+      <div class="step"><h3>Type the code</h3><p>Type your activation code into Hatchline and it unlocks. Start with lesson 1; each lesson takes a few minutes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="head" style="margin-inline:auto;text-align:center">
+      <div class="eyebrow">Pricing</div>
+      <h2>Choose the plan that fits your practice.</h2>
+      <p style="margin-inline:auto">Billed monthly by card in Malaysian ringgit. Cancel any time. Every plan opens read-only if the subscription stops, so your work can always be opened.</p>
+    </div>
+    <div class="finder" id="finder">
+      <div class="eyebrow">Find your plan</div>
+      <h3>Four quick answers, and we name the smallest plan that covers them.</h3>
+      <div class="fgrid">
+        <label>I am
+          <select id="fWho"><option value="student">a student</option><option value="solo" selected>an architect working on my own</option><option value="team">part of a company or a team</option></select>
+        </label>
+        <div class="lab-wrap" style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)">
+          <span class="lab" style="font-weight:600;color:var(--navy)">Photo renders I want each month</span>
+          <div class="row"><input type="number" id="fRooms" min="0" max="500" value="10" aria-label="Rooms a month"> rooms &times; <input type="number" id="fTries" min="1" max="10" value="2" aria-label="Tries for each room"> tries</div>
+        </div>
+        <label>Computers I will use it on
+          <select id="fPcs"><option value="1">1</option><option value="2" selected>2</option><option value="3">3 or more</option></select>
+        </label>
+        <fieldset class="need"><legend>I will need</legend>
+          <div>
+            <label><input type="checkbox" value="bylaw"> By-law checks and areas</label>
+            <label><input type="checkbox" value="site"> Site tools</label>
+            <label><input type="checkbox" value="bq"> BQ spreadsheets and report drafting</label>
+            <label><input type="checkbox" value="bim"> Building BIM and clash detection</label>
+            <label><input type="checkbox" value="cost"> Cost evaluation and quantities</label>
+            <label><input type="checkbox" value="pin"> Starting from a Google pin</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="fout" id="fOut" aria-live="polite"></div>
+    </div>
+    <div class="plans">
+      <div class="price">
+        <div class="eyebrow" style="margin:0">Student</div>
+        <div class="amount">RM199<small> / month</small></div>
+        <p class="for">For students. We check a student email and student ID before the plan is switched on.</p>
+        <ul>
+          <li>Modelling, finishes, inside view and 2D drawings</li>
+          <li>The AI assistant, every export and presentations</li>
+          <li>25 photo renders a month (a re-render counts)</li>
+          <li>1 computer</li>
+        </ul>
+        <p class="no">Not in this plan: by-law checks and areas, site tools, BIM.</p>
+        <a class="btn primary sublink" data-plan="Student" href="mailto:hatchline@nexora-ai-company.com?subject=Hatchline%20Student%20plan">Choose Student</a>
+      </div>
+      <div class="price feature">
+        <div class="eyebrow" style="margin:0">Freelance</div>
+        <div class="amount">RM699<small> / month</small></div>
+        <p class="for">For an architect working on their own.</p>
+        <ul>
+          <li>Everything in Student</li>
+          <li>By-law checks and areas</li>
+          <li>Site tools</li>
+          <li>50 photo renders a month (a re-render counts)</li>
+          <li>2 computers</li>
+        </ul>
+        <p class="no">Not in this plan: bills of quantities, BIM.</p>
+        <a class="btn primary sublink" data-plan="Freelance" href="mailto:hatchline@nexora-ai-company.com?subject=Hatchline%20Freelance%20plan">Choose Freelance</a>
+      </div>
+      <div class="price">
+        <div class="eyebrow" style="margin:0">Pro</div>
+        <div class="amount">RM899<small> / month</small></div>
+        <p class="for">For a practice that coordinates a whole building.</p>
+        <ul>
+          <li>Everything in Freelance</li>
+          <li>BQ spreadsheets and report drafting</li>
+          <li>Building BIM: architectural, structural and MEP, with coordination and clash detection</li>
+          <li>A simple board for site tasks and defects</li>
+          <li>On-premise processing for data-sensitive work, set up with you</li>
+          <li>150 photo renders a month (a re-render counts)</li>
+          <li>2 computers</li>
+        </ul>
+        <a class="btn primary sublink" data-plan="Pro" href="mailto:hatchline@nexora-ai-company.com?subject=Hatchline%20Pro%20plan">Choose Pro</a>
+      </div>
+      <div class="price">
+        <div class="eyebrow" style="margin:0">Enterprise</div>
+        <div class="amount" style="font-size:clamp(30px,3vw,38px)">Let&rsquo;s talk</div>
+        <p class="for">For a company or a team. The price is agreed on a consultation: email us.</p>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Unlimited photo renders (fair use)</li>
+          <li>Unlimited computers</li>
+          <li>Cost evaluation and quantities</li>
+          <li>Start from a Google pin: the plot as a shape in your model</li>
+        </ul>
+        <a class="btn primary sublink" data-plan="Enterprise" href="mailto:hatchline@nexora-ai-company.com?subject=Hatchline%20Enterprise%20consultation">Email us for a price</a>
+      </div>
+    </div>
+    <p class="note" id="refnote" hidden style="text-align:center;margin-top:22px"></p>
+    <p class="note" style="text-align:center;margin-top:22px">After you subscribe you receive an activation code. Type it into Hatchline to start. Photo renders are counted over any 30 days; a re-render counts like the first. The prices are for one studio.</p>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" style="margin-inline:auto;text-align:center"><div class="eyebrow">Before you subscribe</div><h2>Questions architects ask first.</h2><p style="margin-inline:auto">The short answers, price and limits first. Search, or write to us.</p></div>
+    <label class="faqsearch"><input type="search" id="faqSearch" placeholder="Search the questions, for example &ldquo;student&rdquo; or &ldquo;by-law&rdquo;" aria-label="Search the questions"></label>
+    <div class="faq">
+      <details><summary>Does Hatchline certify that my design complies?</summary><p>No. It is a planning aid. It tells you where the model meets or misses the by-laws it can judge, and which ones it cannot judge yet. The registered Architect or other Qualified Person submitting is still responsible for the submission.</p></details>
+      <details><summary>Is there a free trial?</summary><p>No. Hatchline is by subscription. Until it is activated it opens read-only, so anything you already have can always be opened and looked at.</p></details>
+      <details><summary>How do I get the Student plan?</summary><p>Write to us from your student email and send your student ID. We check them by hand and then switch the plan on. The plan is for students; it is not for use in paid work.</p></details>
+      <details><summary>What counts as a photo render?</summary><p>Each picture you ask for counts, and so does a re-render of the same room. The count runs over any 30 days. A render that fails on our side is not counted. Enterprise has no cap, within fair use.</p></details>
+      <details><summary>How much does Enterprise cost?</summary><p>There is no list price. Email us and we agree the price on a consultation, because Enterprise is set up around your team and how many people use it.</p></details>
+      <details><summary>What happens if I stop subscribing?</summary><p>Your models stay yours and can still be opened and viewed. Changing, exporting and the AI features resume when the subscription does.</p></details>
+      <details><summary>Can I pay by bank transfer?</summary><p>Monthly subscriptions are paid by card. If your studio needs another way, write to us and we will arrange it.</p></details>
+      <details><summary>Where are my models kept?</summary><p>On your own computer. Hatchline is a program you install on Windows; your models are not uploaded to a website. Some features send data out only when you use them: the AI assistant sends your brief and the model&rsquo;s details to the AI provider, using your own key; a photo render sends its picture and prompt to our render service; activation contacts our licence server; and place search and terrain ask a map service for the place&rsquo;s coordinates. Client names, addresses and job numbers you type into the project details can go out with an AI request, so leave them out if the client needs them kept private.</p></details>
+      <details><summary>Does Hatchline need the internet?</summary><p>Modelling, by-law checks and drawings run on your computer. Activation, photo renders, the AI assistant, place search and terrain use the internet, and only when you use them.</p></details>
+      <details><summary>Which software can I send my work to?</summary><p>IFC for BIM tools, DXF for CAD, Rhino 3dm, and Excel and PowerPoint for schedules and presentations.</p></details>
+      <details><summary>Does the drawing review price my building?</summary><p>Only with your rates. Hatchline holds no building costs, so a line without a rate you typed is shown as not priced. The quantities come from your IFC file, and every suggestion is marked as verified or as needing the engineer to confirm it.</p></details>
+      <details><summary>Can I review a DXF or a PDF drawing?</summary><p>Not yet. The review needs an IFC file (from Revit, ArchiCAD or SketchUp Pro), because a plain DXF or PDF holds only lines, not walls and pipes. Export an IFC and open that.</p></details>
+      <details><summary>Does Hatchline check my structure?</summary><p>No. It gives indicative sizes and flags what it cannot judge. The Uniform Building By-Laws (Part V) send structural design to the Eurocodes, and the Professional Engineer designs the structure, certifies it, and answers for it. Hatchline does not use the Malaysian National Annex values, which are in paid standards.</p></details>
+      <details><summary>Do I need Google to use Hatchline?</summary><p>Starting from a Google pin is part of the Enterprise plan. No. Hatchline never contacts Google: it reads a pin link or a saved KMZ or KML file on your own computer. Drawing the plot in Google My Maps or Google Earth is done in Google&rsquo;s own tools, under Google&rsquo;s own terms.</p></details>
+      <details><summary>Does Hatchline show satellite pictures?</summary><p>No satellite picture is built in, so Hatchline contacts no map company on its own. It draws your plot to scale on a plain background. If you hold a licence for an imagery source, it can be set up.</p></details>
+      <details><summary>Is the plot&rsquo;s size a survey?</summary><p>No. The size is only as exact as the shape drawn in Google. The land title and the survey plan decide the boundary.</p></details>
+      <details><summary>Does Hatchline fill in the DBKL planning forms?</summary><p>No. It sets your model&rsquo;s figures out under the headings of the forms (Borang A2 and A3) and lists the One Stop Centre documents, so you can copy them across. You complete, sign and submit the form yourself.</p></details>
+      <p class="faqnone" id="faqNone" hidden>Nothing matches. Write to us and we will answer.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="closing">
+      <h2>Draw it once.<br>Let Hatchline check the rest.</h2>
+      <p>Subscribe today and start with the first lesson.</p>
+      <div class="cta"><a class="btn primary" href="#pricing">Subscribe</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; Hatchline. A planning aid for architects; not a certificate of compliance.</span>
+    <span><a href="mailto:hatchline@nexora-ai-company.com">hatchline@nexora-ai-company.com</a></span>
+  </div>
+</footer>
+
+<script>
+/* A referral link looks like hatchline.my/?ref=AIDAS-7K3Q. The code is remembered in this browser and written into the Subscribe email, so the owner sees who sent the client. */
+(function () {
+  var code = "";
+  try {
+    var asked = (new URLSearchParams(location.search).get("ref") || "").toUpperCase().replace(/[^A-Z0-9-]/g, "").slice(0, 24);
+    if (asked) { code = asked; localStorage.setItem("hatchline.ref", asked); }
+    else code = localStorage.getItem("hatchline.ref") || "";
+  } catch (e) { /* storage blocked: the code from the link is still used on this page */ }
+  if (!/^[A-Z0-9-]{3,24}$/.test(code)) return;
+  document.querySelectorAll("a.sublink").forEach(function (link) {
+    var plan = link.getAttribute("data-plan");
+    link.href = "mailto:hatchline@nexora-ai-company.com?subject=" + encodeURIComponent("Hatchline " + plan + " (referral " + code + ")") +
+      "&body=" + encodeURIComponent("Referral code: " + code + "\n\nStudio name:\n");
+  });
+  var note = document.getElementById("refnote");
+  note.textContent = "Referral code " + code + " will be included in your email.";
+  note.hidden = false;
+})();
+</script>
+<script>
+/* the motion switch: off stops every animation and the scroll effects (the page reads the same, still); it also follows the system setting */
+(function () {
+  var b = document.getElementById("motionBtn"), off = document.documentElement.dataset.motion === "off";
+  if (!b) return;
+  b.textContent = off ? "Motion off" : "Motion on";
+  b.setAttribute("aria-pressed", off ? "true" : "false");
+  b.addEventListener("click", function () {
+    try { localStorage.setItem("hatchline.motion", off ? "on" : "off"); } catch (e) {}
+    location.reload();
+  });
+})();
+
+/* the plan finder: the smallest plan that covers the answers, and why (the figures are the plans' own) */
+(function () {
+  var PLANS = [
+    { k: "Student", price: "RM199 a month", r: 25 }, { k: "Freelance", price: "RM699 a month", r: 50 },
+    { k: "Pro", price: "RM899 a month", r: 150 }, { k: "Enterprise", price: "a price agreed on a consultation", r: Infinity }
+  ];
+  var NEEDS = {
+    bylaw: [1, "By-law checks and areas start at Freelance"], site: [1, "Site tools start at Freelance"],
+    bq: [2, "BQ spreadsheets and report drafting are in Pro"], bim: [2, "Building BIM and clash detection are in Pro"],
+    cost: [3, "Cost evaluation and quantities are in Enterprise"], pin: [3, "Starting from a Google pin is in Enterprise"]
+  };
+  var out = document.getElementById("fOut"); if (!out) return;
+  var $ = function (id) { return document.getElementById(id); };
+  function run() {
+    var who = $("fWho").value, rooms = Math.max(0, +$("fRooms").value || 0), tries = Math.max(1, +$("fTries").value || 1), pcs = +$("fPcs").value;
+    var renders = rooms * tries, cons = [];
+    if (who !== "student") cons.push([1, "The Student plan is for students"]);
+    document.querySelectorAll(".finder .need input:checked").forEach(function (c) { cons.push(NEEDS[c.value]); });
+    cons.push(renders > 150 ? [3, renders + " renders a month is more than Pro's 150"] : renders > 50 ? [2, renders + " renders a month needs 150 (Pro)"] : renders > 25 ? [1, renders + " renders a month needs 50 (Freelance)"] : [0, ""]);
+    cons.push(pcs >= 3 ? [3, "Three or more computers needs Enterprise (Freelance and Pro allow two)"] : pcs === 2 ? [1, "Two computers start at Freelance (Student has one)"] : [0, ""]);
+    var top = Math.max.apply(null, cons.map(function (c) { return c[0]; })), plan = PLANS[top];
+    var why = cons.filter(function (c) { return c[0] === top && c[1]; }).map(function (c) { return "<li>" + c[1] + "</li>"; }).join("");
+    var cap = plan.r === Infinity ? "no cap on renders, within fair use" : plan.r + " renders a month";
+    var pct = plan.r === Infinity ? 8 : Math.min(100, Math.round(renders / plan.r * 100));
+    out.innerHTML = "<b class=\"big\">" + plan.k + " &mdash; " + plan.price + "</b>" +
+      (why ? "<ul>" + why + "</ul>" : "<ul><li>It covers everything you chose.</li></ul>") +
+      "<div class=\"meter\" aria-hidden=\"true\"><i style=\"width:" + pct + "%\"></i></div>" +
+      "<span style=\"font-size:14px;color:var(--muted)\">You would use about " + renders + " renders a month; " + plan.k + " includes " + cap + ". A re-render counts, and the count runs over any 30 days.</span>" +
+      "<button class=\"btn primary\" type=\"button\" id=\"fGo\">" + (top === 3 ? "Email us for a price" : "Choose " + plan.k) + "</button>";
+    $("fGo").onclick = function () { var a = document.querySelector("a.sublink[data-plan=\"" + plan.k + "\"]"); if (a) a.click(); };
+  }
+  document.querySelectorAll(".finder select,.finder input").forEach(function (e) { e.addEventListener("input", run); e.addEventListener("change", run); });
+  run();
+})();
+
+/* the lesson picker */
+(function () {
+  var sel = document.getElementById("lGoal"), out = document.getElementById("lOut"); if (!sel) return;
+  var lessons = document.querySelectorAll(".lesson");
+  sel.addEventListener("change", function () {
+    lessons.forEach(function (l) { l.classList.remove("pick"); });
+    if (!sel.value) { out.textContent = ""; return; }
+    var nums = sel.value.split(",").map(Number), names = [];
+    nums.forEach(function (n) { var l = lessons[n - 1]; l.classList.add("pick"); names.push("lesson " + n + ", " + l.querySelector("h3").textContent); });
+    out.textContent = "Start with " + names.join(", then ") + ".";
+  });
+})();
+
+/* the question search */
+(function () {
+  var box = document.getElementById("faqSearch"); if (!box) return;
+  var items = document.querySelectorAll(".faq details"), none = document.getElementById("faqNone");
+  box.addEventListener("input", function () {
+    var q = box.value.trim().toLowerCase(), shown = 0;
+    items.forEach(function (d) { var hit = !q || d.textContent.toLowerCase().indexOf(q) !== -1; d.classList.toggle("hide", !hit); if (hit) shown++; if (q && hit) d.open = true; if (!q) d.open = false; });
+    none.hidden = shown !== 0;
+  });
+})();
+</script>
+</body>
+</html>

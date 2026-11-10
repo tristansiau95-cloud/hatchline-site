@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0" font-family="Arial, Helvetica, sans-serif" data-scale="500" data-paper="A3" data-kind="plot">
+<rect x="0" y="0" width="420.0" height="297.0" fill="#ffffff"/>
+<rect x="10.0" y="10.0" width="400.0" height="277.0" fill="none" stroke="#000" stroke-width="0.5"/>
+<g id="PLOT" data-layer="PLOT" stroke="#14532d" stroke-width="0.6" stroke-linejoin="round" stroke-linecap="butt">
+<polygon points="110.304,185.058 203.672,185.058 221.456,107.656 154.766,85.542 110.304,96.598" fill="#eaf5ee"/>
+<line x1="109.104" y1="185.058" x2="111.504" y2="185.058"/>
+<line x1="110.304" y1="186.258" x2="110.304" y2="183.858"/>
+<line x1="202.472" y1="185.058" x2="204.872" y2="185.058"/>
+<line x1="203.672" y1="186.258" x2="203.672" y2="183.858"/>
+<line x1="220.256" y1="107.656" x2="222.656" y2="107.656"/>
+<line x1="221.456" y1="108.856" x2="221.456" y2="106.456"/>
+<line x1="153.566" y1="85.542" x2="155.966" y2="85.542"/>
+<line x1="154.766" y1="86.742" x2="154.766" y2="84.342"/>
+<line x1="109.104" y1="96.598" x2="111.504" y2="96.598"/>
+<line x1="110.304" y1="97.798" x2="110.304" y2="95.398"/>
+</g>
+<g id="ROOF-BELOW" data-layer="ROOF-BELOW" stroke="#888888" stroke-width="0.15" stroke-dasharray="2.4 1.2" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="150.404" y1="144.358" x2="164.204" y2="144.358"/>
+<line x1="164.204" y1="144.358" x2="164.204" y2="141.358"/>
+<line x1="164.204" y1="141.358" x2="150.404" y2="141.358"/>
+<line x1="150.404" y1="141.358" x2="150.404" y2="144.358"/>
+<line x1="150.404" y1="151.058" x2="160.204" y2="151.058"/>
+<line x1="160.204" y1="151.058" x2="160.204" y2="144.358"/>
+<line x1="160.204" y1="144.358" x2="150.404" y2="144.358"/>
+<line x1="150.404" y1="144.358" x2="150.404" y2="151.058"/>
+<line x1="160.204" y1="151.058" x2="164.204" y2="151.058"/>
+<line x1="164.204" y1="151.058" x2="164.204" y2="144.358"/>
+<line x1="164.204" y1="144.358" x2="160.204" y2="144.358"/>
+<line x1="160.204" y1="144.358" x2="160.204" y2="151.058"/>
+<line x1="150.404" y1="141.358" x2="157.304" y2="141.358"/>
+<line x1="157.304" y1="141.358" x2="157.304" y2="135.058"/>
+<line x1="157.304" y1="135.058" x2="150.404" y2="135.058"/>
+<line x1="150.404" y1="135.058" x2="150.404" y2="141.358"/>
+<line x1="157.304" y1="141.358" x2="164.204" y2="141.358"/>
+<line x1="164.204" y1="141.358" x2="164.204" y2="135.058"/>
+<line x1="164.204" y1="135.058" x2="157.304" y2="135.058"/>
+<line x1="157.304" y1="135.058" x2="157.304" y2="141.358"/>
+</g>
+<g id="DIMS" data-layer="DIMS" stroke="#444444" stroke-width="0.18" stroke-linejoin="round" stroke-linecap="butt">
+<line x1="110.304" y1="186.558" x2="110.304" y2="195.558"/>
+<line x1="203.672" y1="186.558" x2="203.672" y2="195.558"/>
+<line x1="110.304" y1="194.058" x2="203.672" y2="194.058"/>
+<line x1="109.104" y1="192.858" x2="111.504" y2="195.258"/>
+<line x1="202.472" y1="192.858" x2="204.872" y2="195.258"/>
+<text x="156.988" y="196.658" font-size="2.20" text-anchor="middle" dominant-baseline="central" fill="#444444" stroke="none">46.68 m</text>
+<line x1="205.134" y1="185.394" x2="213.905" y2="187.409"/>
+<line x1="222.918" y1="107.992" x2="231.689" y2="110.007"/>
+<line x1="212.443" y1="187.073" x2="230.227" y2="109.671"/>
+<line x1="211.005" y1="187.974" x2="213.882" y2="186.173"/>
+<line x1="228.789" y1="110.572" x2="231.666" y2="108.771"/>
+<text x="223.869" y="148.955" font-size="2.20" text-anchor="middle" dominant-baseline="central" transform="rotate(-77.0602143792578 223.869 148.955)" fill="#444444" stroke="none">39.71 m</text>
+<line x1="221.928" y1="106.232" x2="224.761" y2="97.69"/>
+<line x1="155.238" y1="84.118" x2="158.071" y2="75.576"/>
+<line x1="224.289" y1="99.113" x2="157.599" y2="76.999"/>
+<line x1="225.05" y1="100.63" x2="223.527" y2="97.597"/>
+<line x1="158.36" y1="78.516" x2="156.837" y2="75.483"/>
+<text x="191.762" y="85.589" font-size="2.20" text-anchor="middle" dominant-baseline="central" transform="rotate(18.34520827020063 191.762 85.589)" fill="#444444" stroke="none">35.13 m</text>
+<line x1="154.404" y1="84.086" x2="152.232" y2="75.352"/>
+<line x1="109.942" y1="95.142" x2="107.77" y2="86.408"/>
+<line x1="152.594" y1="76.808" x2="108.132" y2="87.864"/>
+<line x1="154.048" y1="77.683" x2="151.14" y2="75.933"/>
+<line x1="109.586" y1="88.739" x2="106.678" y2="86.989"/>
+<text x="129.736" y="79.813" font-size="2.20" text-anchor="middle" dominant-baseline="central" transform="rotate(-13.964056598887737 129.736 79.813)" fill="#444444" stroke="none">22.91 m</text>
+<line x1="108.804" y1="96.598" x2="99.804" y2="96.598"/>
+<line x1="108.804" y1="185.058" x2="99.804" y2="185.058"/>
+<line x1="101.304" y1="96.598" x2="101.304" y2="185.058"/>
+<line x1="102.504" y1="95.398" x2="100.104" y2="97.798"/>
+<line x1="102.504" y1="183.858" x2="100.104" y2="186.258"/>
+<text x="98.704" y="140.828" font-size="2.20" text-anchor="middle" dominant-baseline="central" transform="rotate(-90.0 98.704 140.828)" fill="#444444" stroke="none">44.23 m</text>
+<text x="106.768" y="188.594" font-size="3.00" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">A</text>
+<text x="206.787" y="188.969" font-size="3.00" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">B</text>
+<text x="225.814" y="105.205" font-size="3.00" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">C</text>
+<text x="154.957" y="80.546" font-size="3.00" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">D</text>
+<text x="106.365" y="93.518" font-size="3.00" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">E</text>
+<text x="165.88" y="208.058" font-size="2.80" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">STREET</text>
+<text x="110.304" y="61.542" font-size="3.40" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">PLOT AREA 2,347.5 m²</text>
+<text x="110.304" y="66.542" font-size="2.10" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">25,268 sq ft · 0.5801 acre · perimeter 188.7 m · 5 corners · 55.6 × 49.8 m across</text>
+<text x="270.456" y="85.542" font-size="2.40" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">CORNERS</text>
+<text x="270.456" y="89.542" font-size="1.70" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">metres east, north of A; latitude, longitude</text>
+<text x="270.456" y="94.542" font-size="1.90" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">A</text>
+<text x="275.456" y="94.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">0.00, 0.00</text>
+<text x="301.456" y="94.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">3.139000, 101.686000</text>
+<text x="270.456" y="98.542" font-size="1.90" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">B</text>
+<text x="275.456" y="98.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">46.68, 0.00</text>
+<text x="301.456" y="98.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">3.139000, 101.686420</text>
+<text x="270.456" y="102.542" font-size="1.90" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">C</text>
+<text x="275.456" y="102.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">55.58, 38.70</text>
+<text x="301.456" y="102.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">3.139350, 101.686500</text>
+<text x="270.456" y="106.542" font-size="1.90" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">D</text>
+<text x="275.456" y="106.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">22.23, 49.76</text>
+<text x="301.456" y="106.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">3.139450, 101.686200</text>
+<text x="270.456" y="110.542" font-size="1.90" text-anchor="start" dominant-baseline="central" font-weight="bold" fill="#444444" stroke="none">E</text>
+<text x="275.456" y="110.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">0.00, 44.23</text>
+<text x="301.456" y="110.542" font-size="1.90" text-anchor="start" dominant-baseline="central" fill="#444444" stroke="none">3.139400, 101.686000</text>
+</g>
+<g id="SYMBOLS" data-layer="SYMBOLS" stroke="#000000" stroke-width="0.25" stroke-linejoin="round" stroke-linecap="butt">
+<polygon points="250.206,94.042 252.456,85.042 254.706,94.042 252.456,91.792" fill="#000000"/>
+<text x="252.456" y="82.792" font-size="3.00" text-anchor="middle" dominant-baseline="central" font-weight="bold" fill="#000000" stroke="none">N</text>
+<polygon points="18.0,252.0 38.0,252.0 38.0,250.4 18.0,250.4" fill="#000000"/>
+<polygon points="38.0,252.0 58.0,252.0 58.0,250.4 38.0,250.4" fill="#ffffff"/>
+<text x="18.0" y="254.2" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none">0</text>
+<text x="38.0" y="254.2" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none">10</text>
+<text x="58.0" y="254.2" font-size="1.80" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none">20</text>
+<text x="60.0" y="251.2" font-size="1.80" text-anchor="start" dominant-baseline="central" fill="#000000" stroke="none">m</text>
+</g>
+<g id="TITLEBLOCK" stroke="#000" stroke-width="0.35" fill="none"><line x1="10.0" y1="259.0" x2="410.0" y2="259.0"/><line x1="160.0" y1="259.0" x2="160.0" y2="287.0"/><line x1="240.0" y1="259.0" x2="240.0" y2="287.0"/></g>
+<g id="TITLETEXT" fill="#000" stroke="none">
+<text x="14.0" y="268.0" font-size="6" font-weight="bold">PLOT SHEET</text>
+<text x="14.0" y="275.0" font-size="3.2">the land plot, measured</text>
+<text x="14.0" y="280.0" font-size="2.8" fill="#9a4a00">Outline as given for the site, not a survey: title and survey plan decide the boundary.</text>
+<text x="14.0" y="284.0" font-size="2.8" fill="#9a4a00">North is at the top of the sheet. Dimensions are in metres.</text>
+<text x="164.0" y="265.0" font-size="3" font-weight="bold">Example plot (made-up)</text>
+<text x="164.0" y="269.0" font-size="2.7">Model: example-plot (v2) · Scale 1:500 @ A3</text>
+<text x="164.0" y="273.0" font-size="2.4" fill="#555">Date: 2026-11-04 · generated by Hatchline</text>
+<text x="244.0" y="265.0" font-size="2.7">Schematic drawing from a massing model: rooms are boxes. No</text>
+<text x="244.0" y="269.0" font-size="2.7">walls, slabs, openings or structure are modelled. Not for</text>
+<text x="244.0" y="273.0" font-size="2.7">construction.</text>
+</g></svg>

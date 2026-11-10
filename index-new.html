@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hatchline: massing and drawings for Malaysian architects</title>
+<meta name="description" content="Block out a building in 3D and let the drawings draw themselves. Made for Malaysian architects.">
+<meta property="og:title" content="Hatchline">
+<meta property="og:description" content="Massing and drawings for Malaysian architects.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://hatchline.my/">
+<meta property="og:url" content="https://hatchline.my/">
+<meta property="og:site_name" content="Hatchline">
+<meta property="og:image" content="https://hatchline.my/assets/og-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hatchline.my/assets/og-share.jpg">
+<meta name="theme-color" content="#f0ebdf">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fonts/HankenGrotesk-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/InstrumentSerif-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<script>try{if(localStorage.getItem('hatchline.motion')==='off')document.documentElement.dataset.motion='off'}catch(e){}</script>
+<style>
+:root{
+  --paper:#f0ebdf; --white:#fff; --ink:#161614; --soft:rgba(22,22,20,.62); --faint:rgba(22,22,20,.16);
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gap:14px; --round:22px; --pad:clamp(20px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,video,canvas{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.caps{font:500 11px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.arrow{display:inline-flex;align-items:center;gap:.6em;font:500 15px/1.2 var(--sans);padding-bottom:3px;border-bottom:1px solid currentColor;transition:gap .25s}
+.arrow::after{content:"\2192"}
+.arrow:hover{gap:.95em}
+
+/* the bar: small, plain, and the colour of whatever is behind it */
+.top{position:fixed;inset:0 0 auto;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:calc(var(--gap) + 12px) calc(var(--gap) + 22px);color:var(--ink);transition:color .35s}
+.top.photo{color:#fff}
+.top .mark{display:flex;align-items:center;gap:9px;font:700 18px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.top .mark img{width:28px;height:28px}
+.top nav{display:flex;gap:clamp(14px,2.4vw,34px);font:600 16px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.top nav a{opacity:1;padding:8px 2px;border-bottom:2px solid transparent}.top nav a:hover{border-bottom-color:currentColor}
+.top.photo{text-shadow:0 1px 14px rgba(10,16,24,.45)}
+@media(max-width:700px){.top nav a:not(.sub){display:none}}
+@media(max-width:520px){.top .mark{font-size:15px;letter-spacing:.08em;gap:7px}.top .mark img{width:24px;height:24px}.top nav{font-size:14px;letter-spacing:.06em}}
+
+/* 1. a bright photograph, set into the page like a plate */
+.hero{height:100svh;min-height:560px;padding:var(--gap)}
+.hero .card{position:relative;height:100%;border-radius:var(--round);overflow:hidden;color:#fff;isolation:isolate}
+.hero picture,.hero img.bg{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+.hero img.bg{object-fit:cover;object-position:40% 45%}
+.hero .card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(10,16,24,.66),rgba(10,16,24,.4) 38%,rgba(10,16,24,0) 66%),linear-gradient(to right,rgba(10,16,24,.35),rgba(10,16,24,0) 60%)}
+.hero .copy{position:absolute;left:var(--pad);right:var(--pad);top:clamp(88px,15vh,160px)}
+.hero h1{font:400 clamp(40px,6.6vw,106px)/.95 var(--serif);letter-spacing:-.02em;max-width:12.5em;text-shadow:0 2px 40px rgba(10,16,24,.35)}
+.hero h1 span{display:block}
+.hero .links{display:flex;flex-wrap:wrap;gap:12px 34px;align-items:flex-start;margin-top:clamp(22px,4vh,40px)}
+.hero .facts{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(56px,9vh,88px);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.5)}
+.hero .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:400 12px/1.4 var(--sans);opacity:.9;padding:0 var(--pad)}
+@media(max-width:760px){
+  .hero .facts{grid-template-columns:1fr 1fr;row-gap:14px}
+}
+.rise{opacity:1;transform:none}                       /* the first screen's words are readable at once: nothing waits for them */
+.rise.d1{animation-delay:.2s}.rise.d2{animation-delay:.4s}.rise.d3{animation-delay:.6s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* 2. one long sentence, with a picture set into it */
+.about{padding:clamp(90px,16vw,220px) var(--pad) clamp(70px,12vw,170px)}
+.about .caps{color:var(--soft);margin-bottom:28px}
+.about .say{font:400 clamp(30px,5vw,72px)/1.1 var(--sans);letter-spacing:-.03em;max-width:21em;margin-left:clamp(0px,12vw,200px)}
+.about .say .w{opacity:.2;transition:opacity .5s}
+.about .say .w.on{opacity:1}
+.thumb{display:inline-block;width:1.9em;height:1.05em;vertical-align:-.12em;margin:0 .12em;border-radius:.2em;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+
+/* 3. enter the model: a bright plate that stays while the page scrolls */
+.enter{position:relative;height:460vh}
+.stage{position:sticky;top:0;height:100svh;padding:var(--gap)}
+.stage .card{position:relative;height:100%;border-radius:var(--round);overflow:hidden;background:linear-gradient(180deg,#bcd2e8 0%,#e9e3d8 52%,#f3e6cf 100%)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.stage .fallback{position:absolute;inset:0;width:100%;height:100%;display:none;object-fit:cover;opacity:.7}
+.nogl .stage .fallback{display:block}
+.stage .tl{position:absolute;left:var(--pad);top:calc(var(--gap) + 72px);color:var(--soft)}
+.steps{position:absolute;left:var(--pad);bottom:clamp(40px,8vh,84px);width:min(470px,calc(100% - 2 * var(--pad)))}
+.step{position:absolute;left:0;bottom:0;width:100%;opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s;pointer-events:none}
+.step.on{opacity:1;transform:none;pointer-events:auto}
+.step h2{font:400 clamp(40px,5vw,72px)/1 var(--serif);letter-spacing:-.02em;margin:10px 0 14px}
+.step .sub{color:var(--soft)}
+.step p{max-width:40ch;color:var(--ink)}
+.step .facts{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:20px;padding-top:14px;border-top:1px solid var(--faint)}
+.step .facts b{font-weight:600}
+.step .note{margin-top:12px;font-size:12px;color:var(--soft)}
+.step .arrow{margin-top:18px}
+.num{position:absolute;right:var(--pad);bottom:clamp(40px,8vh,84px);font:400 clamp(72px,12vw,190px)/.8 var(--serif);letter-spacing:-.03em}
+.bar{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(18px,3.4vh,34px);height:1px;background:var(--faint)}
+.bar i{position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left}
+.hint{position:absolute;right:var(--pad);top:calc(var(--gap) + 72px);color:var(--soft)}
+@media(max-width:760px){.num{display:none}.hint{display:none}.steps{bottom:50px}}
+
+/* 2b. fly around: a film of a model, played by the scroll */
+.fly{position:relative;height:420vh}
+.fly .card{position:relative;height:100%;border-radius:var(--round);overflow:hidden;background:radial-gradient(circle at 50% 38%,#fffdf8 0%,#f4efe3 55%,#e6dfcf 100%)}
+.fly .still,.fly video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fly video{opacity:0;transition:opacity .5s}
+.fly.ready video{opacity:1}
+.fly .tl{position:absolute;left:var(--pad);top:calc(var(--gap) + 72px);color:var(--soft);z-index:2}
+.flwords{position:absolute;left:var(--pad);bottom:clamp(40px,8vh,84px);width:min(500px,calc(100% - 2 * var(--pad)));min-height:250px;padding:24px 28px;border-radius:18px;background:rgba(255,253,248,.88);backdrop-filter:blur(8px);z-index:2}
+.fl{position:absolute;left:28px;right:28px;bottom:24px;opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}
+.fl.on{opacity:1;transform:none}
+.fl h2{font:400 clamp(40px,4.6vw,68px)/.98 var(--serif);letter-spacing:-.02em;margin:0 0 14px}
+.fl p{max-width:38ch;color:var(--ink)}
+.fly .note{position:absolute;right:var(--pad);bottom:clamp(40px,8vh,84px);max-width:30ch;text-align:right;font-size:12px;color:var(--soft);z-index:2}
+@media(max-width:760px){.fly .note{display:none}}
+
+/* 3b. from model to photograph: three renders, wiped in by the scroll */
+.photos{position:relative;height:360vh}
+.photos .card{position:relative;height:100%;border-radius:var(--round);overflow:hidden;background:#161614}
+.ph{position:absolute;inset:0;margin:0;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.ph canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.photos .card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,24,.62),rgba(10,16,24,0) 46%),linear-gradient(to bottom,rgba(10,16,24,.35),rgba(10,16,24,0) 22%);pointer-events:none;z-index:2}
+.photos .tl{position:absolute;left:var(--pad);top:calc(var(--gap) + 72px);color:#fff;z-index:3}
+.pcs{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(40px,8vh,84px);color:#fff;z-index:3}
+.pcs h2{font:400 clamp(44px,6.4vw,100px)/.98 var(--serif);letter-spacing:-.02em;margin:0 0 16px}
+.pc{display:none;font:500 13px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.pc.on{display:block}
+.pcs .note{max-width:52ch;margin-top:14px;font-size:12px;opacity:.85}
+.photos .bar{z-index:3;background:rgba(255,255,255,.35)}
+.photos .bar i{background:#fff}
+
+.stage #photo3d{opacity:0;pointer-events:none}
+.enter .card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s;background:linear-gradient(to top,rgba(10,16,24,.66),rgba(10,16,24,0) 48%),linear-gradient(to bottom,rgba(10,16,24,.4),rgba(10,16,24,0) 24%)}
+.enter.photoview .card::after{opacity:1}
+.enter .step{box-sizing:border-box;padding:22px 26px;border-radius:18px;background:rgba(255,253,248,.86);backdrop-filter:blur(8px);transition:opacity .55s,transform .55s,background .5s,color .5s}
+.enter.photoview .step{background:transparent;backdrop-filter:none;color:#fff}
+.enter.photoview .step .sub,.enter.photoview .step p,.enter.photoview .step .note,.enter.photoview .tl,.enter.photoview .hint,.enter.photoview .num{color:#fff}
+.enter.photoview .bar{background:rgba(255,255,255,.35)}.enter.photoview .bar i{background:#fff}
+.enter .steps,.enter .num,.enter .tl,.enter .hint,.enter .bar{z-index:3}
+/* 4. a plate beside a page of words */
+.split{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--gap);padding:0 var(--gap) var(--gap);min-height:100svh}
+.split .plate{position:relative;border-radius:var(--round);overflow:hidden;min-height:60vh}
+.split .plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split .page{background:var(--white);border-radius:var(--round);padding:var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+.split .page h2{font:400 clamp(38px,4.4vw,64px)/1.02 var(--sans);letter-spacing:-.035em;margin:18px 0 20px}
+.split .page p{color:var(--soft);max-width:38ch}
+.split .page .caps{color:var(--soft)}
+.laws{list-style:none;padding:0;margin:26px 0 0;border-top:1px solid var(--faint)}
+.laws li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--faint);font-size:14px}
+.laws li span:first-child{font-weight:600;white-space:nowrap}
+.laws li span:last-child{color:var(--soft);text-align:right}
+.split .small{font-size:12px;color:var(--soft);max-width:44ch}
+@media(max-width:900px){.split{grid-template-columns:1fr;min-height:0}.split .plate{min-height:46vh}}
+
+/* 5. one line, said large */
+.big{background:var(--white);padding:clamp(100px,18vw,260px) var(--pad);text-align:center}
+.big h2{font:400 clamp(44px,8.6vw,138px)/.96 var(--serif);letter-spacing:-.025em;max-width:11ch;margin:0 auto 44px;text-wrap:balance}
+.big .row{display:flex;justify-content:center;gap:34px;flex-wrap:wrap}
+
+/* 6. the film, only when asked for */
+.film{padding:clamp(80px,12vw,170px) var(--pad)}
+.film .in{max-width:1180px;margin:0 auto}
+.film .caps{color:var(--soft)}
+.film h2{font:400 clamp(36px,5vw,72px)/1 var(--serif);letter-spacing:-.02em;margin:14px 0 36px}
+.film video{width:100%;border-radius:var(--round);background:#000}
+
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;padding:30px var(--pad) 36px;border-top:1px solid var(--faint);font-size:13px;color:var(--soft)}
+footer a{text-decoration:underline;text-underline-offset:3px}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{animation:none;opacity:1;transform:none}
+  .about .say .w{opacity:1;transition:none}
+  .step{transition:none}
+}
+html[data-motion=off] *,html[data-motion=off] *::before,html[data-motion=off] *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+.motion{font:600 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:99px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;opacity:.85}
+@media(max-width:700px){.top .motion{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top photo" id="top">
+  <a class="mark" href="#hero" data-home aria-label="Hatchline: back to the start"><img src="assets/logo.svg" alt="" width="22" height="22">hatchline</a>
+  <nav aria-label="Main">
+    <a href="#hero" data-home>Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#learn">Learn</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <button class="motion" id="motionBtn" type="button" aria-pressed="false" title="Turn animation off or on">Motion on</button>
+    <a class="sub" href="index.html#pricing">Subscribe</a>
+  </nav>
+</header>
+
+<main>
+<!-- 1. a bright photograph, rendered from a Hatchline model -->
+<section class="hero" id="hero" aria-label="Hatchline">
+  <div class="card">
+    <picture>
+      <source type="image/webp" srcset="assets/hero-villa-1600.webp 1600w, assets/hero-villa-2400.webp 2400w" sizes="100vw">
+      <img class="bg" src="assets/hero-villa-1600.jpg" srcset="assets/hero-villa-900.jpg 900w, assets/hero-villa-1600.jpg 1600w" sizes="100vw" width="1600" height="991" fetchpriority="high"
+           alt="A two-storey villa at golden hour with a lit pool, loungers and a terrace, rendered from a Hatchline model">
+    </picture>
+    <div class="copy">
+      <h1 class="rise"><span>Model it in 3D.</span><span>Get the drawings.</span></h1>
+      <div class="links rise d2">
+        <a class="arrow" href="index.html#pricing">Subscribe</a>
+        <a class="arrow" href="#film">Watch the film</a>
+      </div>
+    </div>
+    <div class="facts caps rise d3">
+      <span>Massing in 3D</span><span>Export to IFC, DXF, 3dm</span><span>Plans, sections, elevations</span><span>Photo renders from the model</span>
+    </div>
+    <p class="cap">A house massed in Hatchline, rendered from its own model.</p>
+  </div>
+</section>
+
+<!-- 2. what it is, in one sentence -->
+<section class="about" id="about">
+  <div class="caps">About</div>
+  <p class="say" id="say">Hatchline is the massing tool for Malaysian architects. Put rooms on levels, see them in <span class="thumb"><img src="assets/hero3d.jpg" alt="" width="1920" height="1080" loading="lazy"></span> 3D, and let the drawings draw themselves.</p>
+</section>
+
+<!-- 2b. fly around: a short film of a model, scrubbed by the scroll -->
+<section class="fly" id="fly" aria-label="Fly around a Hatchline model">
+  <div class="stage">
+    <div class="card">
+      <img class="still" src="assets/flyaround-poster.jpg" alt="A two-storey villa with a flat roof and a pool, drawn from a Hatchline model" width="1440" height="810" loading="lazy">
+      <video id="flyvideo" muted playsinline preload="none" data-src="assets/flyaround.mp4" aria-hidden="true"></video>
+      <div class="tl caps">Fly around<br>A villa drawn from a Hatchline model</div>
+      <div class="flwords">
+        <div class="fl on"><h2>Build it.</h2><p>Put rooms on levels, add the roof, the openings and the plot. The building stands up as you work.</p></div>
+        <div class="fl"><h2>Walk around it.</h2><p>Turn the model, look at every side, and step inside the rooms.</p></div>
+        <div class="fl"><h2>Show it.</h2><p>Then make the drawings, and photo-style pictures, from the same model.</p></div>
+      </div>
+      <div class="note">Scroll to fly round the model. The film is the app&rsquo;s own 3D view.</div>
+      <div class="bar" aria-hidden="true"><i id="flybar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. enter the model: a real model of a villa, drawn from the same data the app uses -->
+<section class="enter" id="enter" aria-label="Enter the model">
+  <div class="stage">
+    <div class="card">
+      <img class="fallback" src="assets/hero3d.jpg" alt="" width="1920" height="1080" loading="lazy">
+      <canvas id="villa" role="img" aria-label="An interactive 3D model of a two-storey villa on its plot. Scroll to move through it; drag to turn it."></canvas>
+      <canvas id="photo3d" aria-hidden="true"></canvas>
+      <div class="tl caps">Enter the model<br>A villa drawn from a Hatchline model</div>
+      <div class="hint caps" aria-hidden="true">Drag to turn</div>
+      <div class="steps" id="steps">
+        <div class="step" data-step="0">
+          <div class="sub caps">Rooms on levels</div>
+          <h2>Place the rooms.</h2>
+          <p>Put rooms on levels. The mass takes shape inside the plot, and the plot is where it starts.</p>
+          <div class="facts caps"><span>Plot <b id="f-plot">22 &times; 34 m</b></span><span>Ground floor <b id="f-foot">277 m&sup2;</b></span><span>Covers <b id="f-cov">37%</b></span></div>
+          <div class="note">Figures worked out from this model.</div>
+        </div>
+        <div class="step" data-step="1">
+          <div class="sub caps">The levels pulled apart</div>
+          <h2>See it in 3D.</h2>
+          <p>Pull the levels apart and see how they stack. Windows, doors, slabs and every facade feature are in the model.</p>
+          <div class="facts caps"><span><b id="f-st">2</b> storeys</span><span><b id="f-h">6.95 m</b> high</span><span><b id="f-rooms">18</b> rooms</span><span><b id="f-area">502 m&sup2;</b> of floor</span></div>
+          <div class="note">Figures worked out from this model.</div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="sub caps">Against the by-laws</div>
+          <h2>Check it.</h2>
+          <p>Hatchline measures the model and checks it against the Uniform Building By-Laws 1984. You read the result, and the architect decides.</p>
+          <a class="arrow" href="index.html#features">See what it checks</a>
+          <div class="note">A planning aid for architects; not a certificate of compliance.</div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="sub caps">From the same model</div>
+          <h2>Photograph it.</h2>
+          <p>Make a photo-style picture of the building you just walked around. Move the pointer to look around it.</p>
+          <div class="note">A picture made from this model by an AI image service. The lit pool, planting and furnishings are the renderer&rsquo;s, not the model&rsquo;s.</div>
+        </div>
+      </div>
+      <div class="num" id="num" aria-hidden="true">01</div>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3b. from model to photograph: three renders -->
+<section class="photos" id="photos" aria-label="From model to photograph">
+  <div class="stage">
+    <div class="card">
+      <figure class="ph" data-img="assets/hero-villa-1600.webp" data-depth="assets/depth-white.jpg"><picture><source type="image/webp" srcset="assets/hero-villa-1600.webp 1600w, assets/hero-villa-2400.webp 2400w" sizes="100vw"><img src="assets/hero-villa-1600.jpg" width="1600" height="990" loading="lazy" alt="A white two-storey villa at golden hour with a lit pool, rendered from a Hatchline model"></picture></figure>
+      <figure class="ph" data-img="assets/render-street-1600.webp" data-depth="assets/depth-street.jpg"><picture><source type="image/webp" srcset="assets/render-street-1600.webp 1600w" sizes="100vw"><img src="assets/render-street-1600.jpg" width="1600" height="990" loading="lazy" alt="A concrete two-storey villa seen from the street at dusk, rendered from a Hatchline model"></picture></figure>
+      <figure class="ph" data-img="assets/render-charcoal-1600.webp" data-depth="assets/depth-charcoal.jpg"><picture><source type="image/webp" srcset="assets/render-charcoal-1600.webp 1600w" sizes="100vw"><img src="assets/render-charcoal-1600.jpg" width="1600" height="990" loading="lazy" alt="A charcoal-clad villa with a concrete balcony over a lit pool at sunset, rendered from a Hatchline model"></picture></figure>
+      <div class="tl caps">From model to photograph</div>
+      <div class="pcs">
+        <h2>Photograph it.</h2>
+        <div class="pc on">One &middot; the garden side, golden hour</div>
+        <div class="pc">Two &middot; from the street, dusk</div>
+        <div class="pc">Three &middot; a charcoal villa over its pool</div>
+        <div class="note">Pictures made from Hatchline models by an AI image service. Three different houses; each picture is its own render, not one camera.</div>
+      </div>
+      <div class="bar" aria-hidden="true"><i id="phbar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. a plate beside a page of words: what the check says -->
+<section class="split" aria-label="The by-laws, read for you">
+  <div class="plate">
+    <picture>
+      <source type="image/webp" srcset="assets/render-charcoal-1600.webp 1600w" sizes="(max-width:900px) 100vw, 60vw">
+      <img src="assets/render-charcoal-1600.jpg" srcset="assets/render-charcoal-900.jpg 900w, assets/render-charcoal-1600.jpg 1600w" sizes="(max-width:900px) 100vw, 60vw" width="1600" height="990" loading="lazy"
+           alt="A charcoal-clad villa with a concrete balcony over a lit pool and loungers at sunset, rendered from a Hatchline model">
+    </picture>
+  </div>
+  <div class="page">
+    <div>
+      <div class="caps">Check</div>
+      <h2>The by-laws, read for you.</h2>
+      <p>Hatchline measures your model against the by-laws and lists what fails, what passes and what it cannot judge yet, with the by-law number beside each line.</p>
+      <ul class="laws">
+        <li><span>By-law 44(1)</span><span>Room heights, residential</span></li>
+        <li><span>By-laws 32&ndash;34</span><span>The building on its lot</span></li>
+        <li><span>By-law 38</span><span>Distance from the boundary</span></li>
+      </ul>
+    </div>
+    <div>
+      <a class="arrow" href="index.html#features">Everything it checks</a>
+      <p class="small" style="margin-top:20px">A planning aid, not a certificate. The registered Architect or other Qualified Person submitting still checks and signs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. one line, said large -->
+<section class="big">
+  <h2>Model it once. Let Hatchline draw and check the rest.</h2>
+  <div class="row">
+    <a class="arrow" href="index.html#pricing">Subscribe</a>
+    <a class="arrow" href="index.html#learn">The nine lessons</a>
+  </div>
+</section>
+
+<!-- 6. the film opens when asked for: nothing is downloaded until then -->
+<section class="film" id="film">
+  <div class="in">
+    <div class="caps">See it move</div>
+    <h2>Forty seconds, start to finish.</h2>
+    <video controls preload="none" playsinline poster="assets/hero3d.jpg" src="assets/hatchline-film.mp4"></video>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>&copy; Hatchline. A planning aid for architects; not a certificate of compliance.</span>
+  <span><a href="mailto:hatchline@nexora-ai-company.com">hatchline@nexora-ai-company.com</a></span>
+</footer>
+
+<script>
+(function () {
+  /* a referral link (hatchline.my/?ref=CODE) is remembered here, so the Subscribe page it leads to writes it into the email */
+  try {
+    var asked = (new URLSearchParams(location.search).get("ref") || "").toUpperCase().replace(/[^A-Z0-9-]/g, "").slice(0, 24);
+    if (asked) localStorage.setItem("hatchline.ref", asked);
+  } catch (e) { /* storage blocked: the link still works without the code */ }
+
+  /* the logo and Home always bring the visitor back to the opening picture, at the very top */
+  document.querySelectorAll("[data-home]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" });
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
+  /* the motion switch: off stops the animation and the scroll effects, and the page reads the same, still */
+  var mb = document.getElementById("motionBtn"), moff = document.documentElement.dataset.motion === "off";
+  mb.textContent = moff ? "Motion off" : "Motion on"; mb.setAttribute("aria-pressed", moff ? "true" : "false");
+  mb.addEventListener("click", function () { try { localStorage.setItem("hatchline.motion", moff ? "on" : "off"); } catch (e) {} location.reload(); });
+
+  /* the bar is white over the photograph and ink over the paper */
+  var top = document.getElementById("top"), hero = document.getElementById("hero");
+  var photos = document.getElementById("photos"), enter = document.getElementById("enter");
+  var tint = function () { var pr = photos.getBoundingClientRect(); var er = enter.getBoundingClientRect(); top.classList.toggle("photo", hero.getBoundingClientRect().bottom > 70 || (pr.top < 60 && pr.bottom > 60) || (enter.classList.contains("photoview") && er.top < 60 && er.bottom > 60)); };
+  addEventListener("scroll", tint, { passive: true });
+  tint();
+
+  /* the long sentence fills in, word by word, as it is read */
+  var say = document.getElementById("say"), words = [];
+  (function wrap(node) {
+    Array.from(node.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (t) {
+          if (!t) return;
+          if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+          var s = document.createElement("span"); s.className = "w"; s.textContent = t; frag.appendChild(s); words.push(s);
+        });
+        node.replaceChild(frag, n);
+      } else if (n.nodeType === 1 && !n.classList.contains("thumb")) wrap(n);
+      else if (n.nodeType === 1) words.push(n);
+    });
+  })(say);
+  var fill = function () {
+    var r = say.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.25)));
+    var upto = Math.round(p * words.length);
+    words.forEach(function (w, i) { w.classList.toggle("on", i < upto); });
+  };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) words.forEach(function (w) { w.classList.add("on"); });
+  else { addEventListener("scroll", fill, { passive: true }); addEventListener("resize", fill); fill(); }
+})();
+</script>
+<script type="module" src="assets/fly.js"></script>
+<script type="module" src="assets/reveal.js"></script>
+<script type="module" src="assets/enter-model.js"></script>
+</body>
+</html>
