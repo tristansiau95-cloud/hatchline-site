@@ -24,7 +24,7 @@ command -v caddy >/dev/null 2>&1 || { echo "Caddy is not installed: run the gate
 [ -f /etc/caddy/Caddyfile ] || { echo "There is no /etc/caddy/Caddyfile: run the gateway installer first."; exit 3; }
 if ! grep -q "import /etc/caddy/sites" /etc/caddy/Caddyfile; then
   # the gateway's Caddyfile is the only thing in it: keep a copy, then add one line that loads the site files, so the site and a later gateway update never overwrite each other
-  grep -q "Hatchline render gateway" /etc/caddy/Caddyfile || { echo "The Caddyfile is not the one the gateway installer wrote: I will not edit it. Send me its contents."; exit 3; }
+  grep -q "render gateway (written by install_gateway.sh)" /etc/caddy/Caddyfile || { echo "The Caddyfile is not the one the gateway installer wrote: I will not edit it. Send me its contents."; exit 3; }
   cp -a /etc/caddy/Caddyfile "/etc/caddy/Caddyfile.bak-$(date +%Y%m%d-%H%M)"
   mkdir -p /etc/caddy/sites
   printf '
